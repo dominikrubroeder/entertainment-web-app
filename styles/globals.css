@@ -1,26 +1,32 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  /* outfit-300 - latin */
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+      url('/fonts/outfit-v6-latin/outfit-v6-latin-300.woff2') format('woff2'),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('/fonts/outfit-v6-latin/outfit-v6-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
-  body {
-    color: white;
-    background: black;
+  /* outfit-regular - latin */
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+      url('/fonts/outfit-v6-latin/outfit-v6-latin-regular.woff2')
+        format('woff2'),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('/fonts/outfit-v6-latin/outfit-v6-latin-regular.woff')
+        format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+  html {
+    font-family: 'Outfit';
   }
 }
