@@ -29,4 +29,18 @@
   html {
     font-family: 'Outfit';
   }
+
+  body * {
+    @apply transition;
+  }
+}
+
+@layer components {
+  svg {
+    fill: #5a698f;
+  }
+
+  svg :hover {
+    fill: #fff;
+  }
 }

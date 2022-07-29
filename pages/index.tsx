@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import TheSidebar from '../components/layout/TheSidebar';
 
 const Home: NextPage = () => {
   return (
@@ -19,7 +20,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>Hello, world!</h1>
+        <TheSidebar />
       </main>
     </div>
   );
