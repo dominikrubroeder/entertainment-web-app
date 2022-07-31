@@ -1,8 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import TheSidebar from '../components/layout/TheSidebar';
 import Recommended from '../components/recommended/Recommended';
-import SearchBar from '../components/SearchBar';
 import Trending from '../components/trending/Trending';
 
 const Home: NextPage = () => {
@@ -22,14 +20,10 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <main>
-        <TheSidebar />
-        <div className="flex flex-col gap-8 pt-8 pl-40">
-          <SearchBar />
-          <Trending />
-          <Recommended />
-        </div>
-      </main>
+      <>
+        <Trending />
+        <Recommended />
+      </>
     </div>
   );
 };

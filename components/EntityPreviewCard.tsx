@@ -1,17 +1,21 @@
 import React from 'react';
 import Image from 'next/image';
 import { Entity, EntityCategory } from '../data/data';
-import IconMovies from './icons/IconMovies';
-import IconTvSeries from './icons/IconTvSeries';
 import IconBookmarkFill from './icons/IconBookmarkFill';
 import IconBookmarkEmpty from './icons/IconBookmarkEmpty';
 import IconPlay from './icons/IconPlay';
+import IconCategoryMovie from './icons/IconCategoryMovie';
+import IconCategoryTv from './icons/IconCategoryTv';
 
 interface EntityPreviewCardProps {
   data: Entity;
+  trendingIsShown?: boolean;
 }
 
-const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({ data }) => {
+const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({
+  data,
+  trendingIsShown = true,
+}) => {
   const bookmark = (
     <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-app-blue-900/50 z-50 flex items-center justify-center cursor-pointer">
       {data.isBookmarked ? <IconBookmarkFill /> : <IconBookmarkEmpty />}
@@ -26,7 +30,7 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({ data }) => {
     </div>
   );
 
-  if (data.isTrending)
+  if (data.isTrending && trendingIsShown)
     return (
       <div className="group relative flex justify-end flex-col gap-2 w-[29.375rem] h-[14.375rem] rounded-xl cursor-pointer">
         <div className="z-10 bg-gradient-to-b from-black/0 to-black/75 p-6 rounded-b-xl">
@@ -35,9 +39,9 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({ data }) => {
             <li className="w-[0.1875rem] h-[0.1875rem] rounded-full bg-white"></li>
             <li className="flex items-center gap-2">
               {data.category === EntityCategory.movie ? (
-                <IconMovies />
+                <IconCategoryMovie />
               ) : (
-                <IconTvSeries />
+                <IconCategoryTv />
               )}
               {data.category}
             </li>
@@ -84,9 +88,9 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({ data }) => {
           <li className="w-[0.1875rem] h-[0.1875rem] rounded-full bg-white"></li>
           <li className="flex items-center gap-2">
             {data.category === EntityCategory.movie ? (
-              <IconMovies />
+              <IconCategoryMovie />
             ) : (
-              <IconTvSeries />
+              <IconCategoryTv />
             )}
             {data.category}
           </li>
