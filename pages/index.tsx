@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import TheSidebar from '../components/layout/TheSidebar';
 import SearchBar from '../components/SearchBar';
+import Trending from '../components/trending/Trending';
 
 const Home: NextPage = () => {
   return (
@@ -22,8 +23,9 @@ const Home: NextPage = () => {
 
       <main>
         <TheSidebar />
-        <div className="p-8 pl-40">
+        <div className="grid gap-8 pt-8 pl-40">
           <SearchBar />
+          <Trending />
         </div>
       </main>
     </div>
