@@ -25,6 +25,14 @@ export interface Entity {
 
 export type EntityContextType = {
   entities: Entity[];
+  movies: Entity[];
+  tvseries: Entity[];
+  bookmarked: Entity[];
+  bookmarkedMovies: Entity[];
+  bookmarkedTvSeries: Entity[];
+  bookmarkedCount: number;
+  bookmarkedMoviesCount: number;
+  bookmarkedTvSeriesCount: number;
   toggleBookmarked: (entityId: string) => void;
 };
 

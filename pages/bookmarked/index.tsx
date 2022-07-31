@@ -8,6 +8,21 @@ import { EntityContext } from '../../store/entityContext';
 const Bookmarked: NextPage = () => {
   const entityCtx = useContext(EntityContext);
 
+  if (entityCtx?.bookmarkedCount === 0)
+    return (
+      <div>
+        <Head>
+          <title>Bookmarked - Web entertainment app | frontendmentor.io</title>
+          <meta
+            name="description"
+            content="Web entertainment app | challenge by frontendmentor.io, solution by Dominik Rubröder | Search bookmarked"
+          />
+        </Head>
+
+        <h1>No bookmarked items.</h1>
+      </div>
+    );
+
   return (
     <div>
       <Head>
@@ -19,28 +34,25 @@ const Bookmarked: NextPage = () => {
       </Head>
 
       <section className="flex flex-col gap-8">
-        <section>
-          <h2 className="text-[2rem] mb-6">Bookmarked Movies</h2>
-          <EntityGrid
-            data={entityCtx!.entities.filter(
-              (entity) =>
-                entity.category === EntityCategory.movie && entity.isBookmarked
-            )}
-            trendingIsShown={false}
-          />
-        </section>
+        {entityCtx!.bookmarkedMoviesCount > 0 && (
+          <section>
+            <h2 className="text-[2rem] mb-6">Bookmarked Movies</h2>
+            <EntityGrid
+              data={entityCtx!.bookmarkedMovies}
+              trendingIsShown={false}
+            />
+          </section>
+        )}
 
-        <section>
-          <h2 className="text-[2rem] mb-6">Bookmarked TV Series</h2>
-          <EntityGrid
-            data={entityCtx!.entities.filter(
-              (entity) =>
-                entity.category === EntityCategory.tv_series &&
-                entity.isBookmarked
-            )}
-            trendingIsShown={false}
-          />
-        </section>
+        {entityCtx!.bookmarkedTvSeriesCount > 0 && (
+          <section>
+            <h2 className="text-[2rem] mb-6">Bookmarked TV Series</h2>
+            <EntityGrid
+              data={entityCtx!.bookmarkedTvSeries}
+              trendingIsShown={false}
+            />
+          </section>
+        )}
       </section>
     </div>
   );

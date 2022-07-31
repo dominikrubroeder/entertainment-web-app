@@ -21,12 +21,7 @@ const TvSeries: NextPage = () => {
       <>
         <h2 className="text-[2rem] mb-6">TV Series</h2>
 
-        <EntityGrid
-          data={entityCtx!.entities.filter(
-            (entity) => entity.category === EntityCategory.tv_series
-          )}
-          trendingIsShown={false}
-        />
+        <EntityGrid data={entityCtx!.tvseries} trendingIsShown={false} />
       </>
     </div>
   );

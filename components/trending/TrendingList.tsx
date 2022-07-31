@@ -1,11 +1,13 @@
-import React from 'react';
-import { entitiyList } from '../../data/data';
+import React, { useContext } from 'react';
+import { EntityContext } from '../../store/entityContext';
 import EntityPreviewCard from '../EntityPreviewCard';
 
 const TrendingList: React.FC = () => {
+  const entityCtx = useContext(EntityContext);
+
   return (
     <ul className="flex gap-4 items-start overflow-auto whitespace-nowrap">
-      {entitiyList.map((entity, index) => {
+      {entityCtx!.entities.map((entity, index) => {
         if (entity.isTrending) {
           return (
             <li key={index}>
