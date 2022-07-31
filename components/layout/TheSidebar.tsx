@@ -12,7 +12,7 @@ const TheSidebar: React.FC = () => {
       </div>
 
       <Image
-        src="/images/image-avatar.png"
+        src="/assets/image-avatar.png"
         width={40}
         height={40}
         alt="User profile image"

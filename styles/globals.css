@@ -33,7 +33,7 @@
   }
 
   body * {
-    @apply transition;
+    @apply transition duration-300;
   }
 }
 
