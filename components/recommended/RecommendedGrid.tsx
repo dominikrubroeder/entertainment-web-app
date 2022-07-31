@@ -2,11 +2,11 @@ import React from 'react';
 import { entitiyList } from '../../data/data';
 import EntityPreviewCard from '../EntityPreviewCard';
 
-const TrendingList: React.FC = () => {
+const RecommendedGrid: React.FC = () => {
   return (
-    <ul className="flex gap-4 items-start overflow-auto whitespace-nowrap">
+    <ul className="grid grid-cols-4 gap-y-8 gap-10">
       {entitiyList.map((entity, index) => {
-        if (entity.isTrending) {
+        if (!entity.isTrending) {
           return (
             <li key={index}>
               <EntityPreviewCard data={entity} />
@@ -18,4 +18,4 @@ const TrendingList: React.FC = () => {
   );
 };
 
-export default TrendingList;
+export default RecommendedGrid;
