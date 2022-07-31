@@ -480,3 +480,7 @@ export const entitiyList: Entity[] = [
     isTrending: false,
   },
 ];
+
+export interface IconNavProps {
+  isActive: boolean;
+}

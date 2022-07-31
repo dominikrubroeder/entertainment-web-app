@@ -2,12 +2,15 @@ import React from 'react';
 import Head from 'next/head';
 import TheSidebar from './TheSidebar';
 import SearchBar from '../SearchBar';
+import { useRouter } from 'next/router';
 
 interface TheLayoutProps {
   children?: React.ReactNode;
 }
 
 const TheLayout: React.FC<TheLayoutProps> = ({ children }) => {
+  const router = useRouter();
+
   return (
     <div>
       <Head>
@@ -28,7 +31,9 @@ const TheLayout: React.FC<TheLayoutProps> = ({ children }) => {
         <TheSidebar />
         <div className="flex flex-col gap-8 pt-8 pl-40">
           <SearchBar />
-          {children}
+          <section className={router.pathname !== '/' ? 'pr-8' : ''}>
+            {children}
+          </section>
         </div>
       </main>
     </div>

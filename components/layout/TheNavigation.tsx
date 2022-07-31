@@ -1,28 +1,37 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
+import IconNavBookmark from '../icons/IconNavBookmark';
 import IconBookmark from '../icons/IconNavBookmark';
 import IconNavHome from '../icons/IconNavHome';
-import IconMovies from '../icons/IconNavMovies';
-import IconTvSeries from '../icons/IconNavTvSeries';
+import IconNavMovies from '../icons/IconNavMovies';
+import IconNavTvSeries from '../icons/IconNavTvSeries';
 
 const TheNavigation: React.FC = () => {
+  const router = useRouter();
+
   return (
     <ul className="grid gap-10">
       <Link href="/">
         <li className="group hover:cursor-pointer">
-          <IconNavHome />
+          <IconNavHome isActive={router.pathname === '/'} />
         </li>
       </Link>
+
       <Link href="/movies">
         <li className="group hover:cursor-pointer">
-          <IconMovies />
+          <IconNavMovies isActive={router.pathname === '/movies'} />
         </li>
       </Link>
+
+      <Link href="/tvseries">
+        <li className="group hover:cursor-pointer">
+          <IconNavTvSeries isActive={router.pathname === '/tvseries'} />
+        </li>
+      </Link>
+
       <li className="group hover:cursor-pointer">
-        <IconTvSeries />
-      </li>
-      <li className="group hover:cursor-pointer">
-        <IconBookmark />
+        <IconNavBookmark isActive={router.pathname === '/bookmarked'} />
       </li>
     </ul>
   );

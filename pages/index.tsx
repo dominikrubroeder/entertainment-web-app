@@ -20,10 +20,10 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <>
+      <div className="flex flex-col gap-8">
         <Trending />
         <Recommended />
-      </>
+      </div>
     </div>
   );
 };
