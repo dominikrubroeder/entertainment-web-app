@@ -12,12 +12,6 @@ const TvSeries: NextPage = () => {
           name="description"
           content="Web entertainment app | challenge by frontendmentor.io, solution by Dominik Rubröder | Search TV Series"
         />
-        <link
-          rel="icon"
-          type="image/png"
-          href="/assets/favicon-32x32.png"
-          sizes="32x32"
-        />
       </Head>
 
       <>

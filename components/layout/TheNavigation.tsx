@@ -30,9 +30,11 @@ const TheNavigation: React.FC = () => {
         </li>
       </Link>
 
-      <li className="group hover:cursor-pointer">
-        <IconNavBookmark isActive={router.pathname === '/bookmarked'} />
-      </li>
+      <Link href="/bookmarked">
+        <li className="group hover:cursor-pointer">
+          <IconNavBookmark isActive={router.pathname === '/bookmarked'} />
+        </li>
+      </Link>
     </ul>
   );
 };
