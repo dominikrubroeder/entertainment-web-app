@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import { Entity, EntityCategory } from '../data/data';
 import IconBookmarkFill from './icons/IconBookmarkFill';
@@ -6,6 +6,7 @@ import IconBookmarkEmpty from './icons/IconBookmarkEmpty';
 import IconPlay from './icons/IconPlay';
 import IconCategoryMovie from './icons/IconCategoryMovie';
 import IconCategoryTv from './icons/IconCategoryTv';
+import { EntityContext } from '../store/entityContext';
 
 interface EntityPreviewCardProps {
   data: Entity;
@@ -16,10 +17,16 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({
   data,
   trendingIsShown = true,
 }) => {
+  const entityCtx = useContext(EntityContext);
+  const id = data.title + data.year;
+
   const bookmark = (
-    <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-app-blue-900/50 z-50 flex items-center justify-center cursor-pointer">
+    <button
+      className="absolute top-4 right-4 w-8 h-8 rounded-full bg-app-blue-900/50 z-50 flex items-center justify-center cursor-pointer"
+      onClick={() => entityCtx?.toggleBookmarked(id)}
+    >
       {data.isBookmarked ? <IconBookmarkFill /> : <IconBookmarkEmpty />}
-    </div>
+    </button>
   );
 
   const playOverlay = (

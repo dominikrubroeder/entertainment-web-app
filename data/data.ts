@@ -23,7 +23,12 @@ export interface Entity {
   isTrending: boolean;
 }
 
-export const entitiyList: Entity[] = [
+export type EntityContextType = {
+  entities: Entity[];
+  toggleBookmarked: (entityId: string) => void;
+};
+
+export const initialEntities: Entity[] = [
   {
     title: 'Beyond Earth',
     thumbnail: {

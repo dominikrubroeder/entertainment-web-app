@@ -1,9 +1,13 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useContext } from 'react';
 import EntityGrid from '../../components/EntityGrid';
-import { entitiyList, EntityCategory } from '../../data/data';
+import { EntityCategory } from '../../data/data';
+import { EntityContext } from '../../store/entityContext';
 
 const TvSeries: NextPage = () => {
+  const entityCtx = useContext(EntityContext);
+
   return (
     <div>
       <Head>
@@ -18,7 +22,7 @@ const TvSeries: NextPage = () => {
         <h2 className="text-[2rem] mb-6">TV Series</h2>
 
         <EntityGrid
-          data={entitiyList.filter(
+          data={entityCtx!.entities.filter(
             (entity) => entity.category === EntityCategory.tv_series
           )}
           trendingIsShown={false}
