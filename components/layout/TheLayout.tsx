@@ -27,19 +27,27 @@ const TheLayout: React.FC<TheLayoutProps> = ({ children }) => {
         />
       </Head>
 
-      <main>
-        <TheSidebar />
+      {!router.pathname.includes('/auth') && (
+        <main>
+          <TheSidebar />
 
-        <div className="flex flex-col gap-8 lg:pt-8 lg:pl-40">
-          <SearchBar />
+          <div className="flex flex-col gap-8 lg:pt-8 lg:pl-40">
+            <SearchBar />
 
-          <section
-            className={`mb-8 ${router.pathname !== '/' ? 'pr-4 md:pr-8' : ''}`}
-          >
-            {children}
-          </section>
-        </div>
-      </main>
+            <section
+              className={`mb-8 ${
+                router.pathname !== '/' ? 'pr-4 md:pr-8' : ''
+              }`}
+            >
+              {children}
+            </section>
+          </div>
+        </main>
+      )}
+
+      {router.pathname.includes('/auth') && (
+        <main className="h-screen">{children}</main>
+      )}
     </div>
   );
 };
