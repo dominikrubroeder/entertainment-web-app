@@ -36,7 +36,12 @@ const Bookmarked: NextPage = () => {
       <section className="flex flex-col gap-8">
         {entityCtx!.bookmarkedMoviesCount > 0 && (
           <section>
-            <h2 className="text-[2rem] mb-6">Bookmarked Movies</h2>
+            <h2 className="text-[2rem] mb-6 flex items-center gap-4">
+              Bookmarked Movies
+              <span className="text-xs font-bold text-app-primary-red pt-1.5">
+                {entityCtx?.bookmarkedMoviesCount}
+              </span>
+            </h2>
             <EntityGrid
               data={entityCtx!.bookmarkedMovies}
               trendingIsShown={false}
@@ -46,7 +51,12 @@ const Bookmarked: NextPage = () => {
 
         {entityCtx!.bookmarkedTvSeriesCount > 0 && (
           <section>
-            <h2 className="text-[2rem] mb-6">Bookmarked TV Series</h2>
+            <h2 className="text-[2rem] mb-6 flex items-center gap-4">
+              Bookmarked TV Series
+              <span className="text-xs font-bold text-app-primary-red pt-1.5">
+                {entityCtx?.bookmarkedTvSeriesCount}
+              </span>
+            </h2>
             <EntityGrid
               data={entityCtx!.bookmarkedTvSeries}
               trendingIsShown={false}
