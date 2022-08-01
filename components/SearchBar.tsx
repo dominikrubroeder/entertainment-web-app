@@ -26,11 +26,13 @@ const SearchBar: React.FC = () => {
 
   const onChangeHandler = (e: any) => {
     e.preventDefault();
+
     const inputSearchValue = e.target.value;
 
     setSearchValue(inputSearchValue);
 
-    entityCtx?.searchFor(inputSearchValue);
+    if (inputSearchValue === '') entityCtx?.searchFor(null);
+    if (inputSearchValue !== '') entityCtx?.searchFor(inputSearchValue);
   };
 
   return (

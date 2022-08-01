@@ -17,7 +17,7 @@ const RecommendedGrid: React.FC<RecommendedGridProps> = ({
     entity.title
       .toLowerCase()
       .replaceAll(' ', '')
-      .includes(entityCtx!.transformedSearchValue)
+      .includes(entityCtx!.transformedSearchValue!)
   );
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const RecommendedGrid: React.FC<RecommendedGridProps> = ({
     if (searchValue === '') setResultsCount(null);
   }, [searchValue, filteredRecommended, setResultsCount]);
 
-  if (entityCtx!.searchValue !== '')
+  if (entityCtx!.searchValue !== null)
     return <EntityGrid data={filteredRecommended} trendingIsShown={false} />;
 
   return <EntityGrid data={entityCtx!.recommended} trendingIsShown={false} />;

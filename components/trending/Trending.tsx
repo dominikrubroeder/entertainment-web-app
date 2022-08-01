@@ -15,10 +15,11 @@ const Trending: React.FC = () => {
         {resultsCount !== null && (
           <ResultMessage
             count={resultsCount}
-            searchValue={entityCtx!.searchValue}
+            searchValue={entityCtx!.searchValue!}
           />
         )}
       </h2>
+
       <TrendingList setResultsCount={setResultsCount} />
     </section>
   );

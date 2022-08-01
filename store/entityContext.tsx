@@ -14,7 +14,7 @@ type EntityProviderProps = {
 
 const EntityProvider: React.FC<EntityProviderProps> = ({ children }) => {
   const [entities, setEntities] = useState<Entity[]>(initialEntities);
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState<null | string>(null);
 
   const movies = entities.filter(
     (entity) => entity.category === EntityCategory.movie
@@ -61,11 +61,13 @@ const EntityProvider: React.FC<EntityProviderProps> = ({ children }) => {
     });
   };
 
-  const searchFor = (searchValue: string) => {
+  const searchFor = (searchValue: string | null) => {
     setSearchValue(searchValue);
   };
 
-  const transformedSearchValue = searchValue.toLowerCase().replaceAll(' ', '');
+  const transformedSearchValue = searchValue
+    ? searchValue.toLowerCase().replaceAll(' ', '')
+    : null;
 
   return (
     <EntityContext.Provider

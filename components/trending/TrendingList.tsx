@@ -15,17 +15,17 @@ const TrendingList: React.FC<TrendingListProps> = ({ setResultsCount }) => {
     entity.title
       .toLowerCase()
       .replaceAll(' ', '')
-      .includes(entityCtx!.transformedSearchValue)
+      .includes(entityCtx!.transformedSearchValue!)
   );
 
   const listClasses = 'flex gap-4 items-start overflow-auto whitespace-nowrap';
 
   useEffect(() => {
-    if (searchValue !== '') setResultsCount(filteredTrending.length);
-    if (searchValue === '') setResultsCount(null);
+    if (searchValue !== null) setResultsCount(filteredTrending.length);
+    if (searchValue === null) setResultsCount(null);
   }, [searchValue, filteredTrending, setResultsCount]);
 
-  if (entityCtx?.searchValue !== '')
+  if (entityCtx?.searchValue !== null)
     return (
       <ul className={listClasses}>
         {filteredTrending.map((entity, index) => {

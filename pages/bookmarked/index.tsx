@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useContext } from 'react';
+import CountBadge from '../../components/CountBadge';
 import EntityGrid from '../../components/EntityGrid';
 import { EntityCategory } from '../../data/data';
 import { EntityContext } from '../../store/entityContext';
@@ -38,10 +39,9 @@ const Bookmarked: NextPage = () => {
           <section>
             <h2 className="text-[2rem] mb-6 flex items-center gap-4">
               Bookmarked Movies
-              <span className="text-xs font-bold text-app-primary-red pt-1.5">
-                {entityCtx?.bookmarkedMoviesCount}
-              </span>
+              <CountBadge>{entityCtx?.bookmarkedMoviesCount}</CountBadge>
             </h2>
+
             <EntityGrid
               data={entityCtx!.bookmarkedMovies}
               trendingIsShown={false}
@@ -54,9 +54,10 @@ const Bookmarked: NextPage = () => {
             <h2 className="text-[2rem] mb-6 flex items-center gap-4">
               Bookmarked TV Series
               <span className="text-xs font-bold text-app-primary-red pt-1.5">
-                {entityCtx?.bookmarkedTvSeriesCount}
+                <CountBadge>{entityCtx?.bookmarkedTvSeriesCount}</CountBadge>
               </span>
             </h2>
+
             <EntityGrid
               data={entityCtx!.bookmarkedTvSeries}
               trendingIsShown={false}

@@ -10,11 +10,11 @@ const Recommended: React.FC = () => {
   return (
     <section className="pr-4 md:pr-8">
       <h2 className="flex items-center gap-2 text-[2rem] mb-6">
-        Recommendes for you
+        Recommended for you
         {resultsCount !== null && (
           <ResultMessage
             count={resultsCount}
-            searchValue={entityCtx!.searchValue}
+            searchValue={entityCtx!.searchValue!}
           />
         )}
       </h2>
