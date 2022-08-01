@@ -27,6 +27,7 @@ export type EntityContextType = {
   entities: Entity[];
   movies: Entity[];
   tvseries: Entity[];
+  trending: Entity[];
   bookmarked: Entity[];
   bookmarkedMovies: Entity[];
   bookmarkedTvSeries: Entity[];

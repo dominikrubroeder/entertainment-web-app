@@ -63,7 +63,7 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({
           layout="fill"
           alt={`${data.title} thumbnail`}
           className="rounded-xl"
-          priority
+          priority={entityCtx!.trending[0].title === data.title}
         />
 
         {bookmark}
@@ -84,7 +84,6 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({
           className="rounded-xl"
           width={280}
           height={174}
-          priority
         />
         {bookmark}
       </div>

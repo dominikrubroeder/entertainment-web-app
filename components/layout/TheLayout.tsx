@@ -30,10 +30,12 @@ const TheLayout: React.FC<TheLayoutProps> = ({ children }) => {
       <main>
         <TheSidebar />
 
-        <div className="flex flex-col gap-8 pt-8 pl-40">
+        <div className="flex flex-col gap-8 lg:pt-8 lg:pl-40">
           <SearchBar />
 
-          <section className={`mb-8 ${router.pathname !== '/' ? 'pr-8' : ''}`}>
+          <section
+            className={`mb-8 ${router.pathname !== '/' ? 'pr-4 md:pr-8' : ''}`}
+          >
             {children}
           </section>
         </div>

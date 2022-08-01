@@ -18,11 +18,11 @@ const Movies: NextPage = () => {
         />
       </Head>
 
-      <>
+      <div className="pl-4 md:pl-8">
         <h2 className="text-[2rem] mb-6">Movies</h2>
 
         <EntityGrid data={entityCtx!.movies} trendingIsShown={false} />
-      </>
+      </div>
     </div>
   );
 };

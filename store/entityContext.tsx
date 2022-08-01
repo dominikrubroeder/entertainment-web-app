@@ -23,6 +23,8 @@ const EntityProvider: React.FC<EntityProviderProps> = ({ children }) => {
     (entity) => entity.category === EntityCategory.tv_series
   );
 
+  const trending = entities.filter((entity) => entity.isTrending);
+
   const bookmarked = entities.filter((entity) => entity.isBookmarked);
 
   const bookmarkedMovies = entities.filter(
@@ -62,6 +64,7 @@ const EntityProvider: React.FC<EntityProviderProps> = ({ children }) => {
         entities,
         movies,
         tvseries,
+        trending,
         bookmarked,
         bookmarkedMovies,
         bookmarkedTvSeries,

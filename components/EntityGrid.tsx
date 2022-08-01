@@ -12,7 +12,7 @@ const EntityGrid: React.FC<EntityGridProps> = ({
   trendingIsShown = true,
 }) => {
   return (
-    <ul className="grid grid-cols-4 gap-y-8 gap-10">
+    <ul className="grid grid-cols-2 gap-4 md:gap-10 md:gap-y-8 md:grid-cols-3 lg:grid-cols-4">
       {data.map((entity, index) => {
         return (
           <li key={index}>

@@ -6,14 +6,17 @@ import TheNavigation from './TheNavigation';
 
 const TheSidebar: React.FC = () => {
   return (
-    <div className="fixed left-0 top-0 bottom-0 p-8 m-8 rounded-xl bg-app-blue-800 flex flex-col items-center justify-between z-50">
-      <div className="flex flex-col gap-16 items-center">
+    <div className="p-4 bg-app-blue-800 flex items-center justify-between z-50 md:p-8 md:m-8 md:rounded-xl lg:fixed lg:left-0 lg:top-0 lg:bottom-0 lg:flex-col">
+      <div className="flex items-center justify-between flex-1 lg:flex-col lg:gap-16 lg:flex-0 lg:justify-start">
         <Link href="/">
           <a>
             <Logo />
           </a>
         </Link>
+
         <TheNavigation />
+
+        <div className="lg:hidden"></div>
       </div>
 
       <Image

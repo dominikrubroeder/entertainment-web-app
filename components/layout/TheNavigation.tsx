@@ -7,11 +7,19 @@ import IconNavHome from '../icons/IconNavHome';
 import IconNavMovies from '../icons/IconNavMovies';
 import IconNavTvSeries from '../icons/IconNavTvSeries';
 
-const TheNavigation: React.FC = () => {
+interface TheNavigationProps {
+  className?: string;
+}
+
+const TheNavigation: React.FC<TheNavigationProps> = ({ className }) => {
   const router = useRouter();
 
   return (
-    <ul className="grid gap-10">
+    <ul
+      className={`flex items-center gap-8 lg:grid lg:gap-10 ${
+        className ? className : ''
+      }`}
+    >
       <Link href="/">
         <li className="group hover:cursor-pointer">
           <IconNavHome isActive={router.pathname === '/'} />
