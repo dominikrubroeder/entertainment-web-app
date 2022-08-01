@@ -28,6 +28,7 @@ export type EntityContextType = {
   movies: Entity[];
   tvseries: Entity[];
   trending: Entity[];
+  recommended: Entity[];
   bookmarked: Entity[];
   bookmarkedMovies: Entity[];
   bookmarkedTvSeries: Entity[];
@@ -35,6 +36,9 @@ export type EntityContextType = {
   bookmarkedMoviesCount: number;
   bookmarkedTvSeriesCount: number;
   toggleBookmarked: (entityId: string) => void;
+  searchValue: string;
+  transformedSearchValue: string;
+  searchFor: (searchValue: string) => void;
 };
 
 export const initialEntities: Entity[] = [

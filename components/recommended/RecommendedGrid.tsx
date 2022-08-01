@@ -1,17 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { EntityContext } from '../../store/entityContext';
 import EntityGrid from '../EntityGrid';
-import EntityPreviewCard from '../EntityPreviewCard';
 
-const RecommendedGrid: React.FC = () => {
+interface RecommendedGridProps {
+  setResultsCount: (count: number | null) => void;
+}
+
+const RecommendedGrid: React.FC<RecommendedGridProps> = ({
+  setResultsCount,
+}) => {
   const entityCtx = useContext(EntityContext);
 
-  return (
-    <EntityGrid
-      data={entityCtx!.entities.filter((entity) => !entity.isTrending)}
-      trendingIsShown={false}
-    />
+  const { searchValue } = entityCtx!;
+
+  const filteredRecommended = entityCtx!.recommended.filter((entity) =>
+    entity.title
+      .toLowerCase()
+      .replaceAll(' ', '')
+      .includes(entityCtx!.transformedSearchValue)
   );
+
+  useEffect(() => {
+    if (searchValue !== '') setResultsCount(filteredRecommended.length);
+    if (searchValue === '') setResultsCount(null);
+  }, [searchValue, filteredRecommended, setResultsCount]);
+
+  if (entityCtx!.searchValue !== '')
+    return <EntityGrid data={filteredRecommended} trendingIsShown={false} />;
+
+  return <EntityGrid data={entityCtx!.recommended} trendingIsShown={false} />;
 };
 
 export default RecommendedGrid;

@@ -14,6 +14,7 @@ type EntityProviderProps = {
 
 const EntityProvider: React.FC<EntityProviderProps> = ({ children }) => {
   const [entities, setEntities] = useState<Entity[]>(initialEntities);
+  const [searchValue, setSearchValue] = useState('');
 
   const movies = entities.filter(
     (entity) => entity.category === EntityCategory.movie
@@ -24,6 +25,8 @@ const EntityProvider: React.FC<EntityProviderProps> = ({ children }) => {
   );
 
   const trending = entities.filter((entity) => entity.isTrending);
+
+  const recommended = entities.filter((entity) => !entity.isTrending);
 
   const bookmarked = entities.filter((entity) => entity.isBookmarked);
 
@@ -58,6 +61,12 @@ const EntityProvider: React.FC<EntityProviderProps> = ({ children }) => {
     });
   };
 
+  const searchFor = (searchValue: string) => {
+    setSearchValue(searchValue);
+  };
+
+  const transformedSearchValue = searchValue.toLowerCase().replaceAll(' ', '');
+
   return (
     <EntityContext.Provider
       value={{
@@ -65,6 +74,7 @@ const EntityProvider: React.FC<EntityProviderProps> = ({ children }) => {
         movies,
         tvseries,
         trending,
+        recommended,
         bookmarked,
         bookmarkedMovies,
         bookmarkedTvSeries,
@@ -72,6 +82,9 @@ const EntityProvider: React.FC<EntityProviderProps> = ({ children }) => {
         bookmarkedMoviesCount,
         bookmarkedTvSeriesCount,
         toggleBookmarked,
+        searchValue,
+        transformedSearchValue,
+        searchFor,
       }}
     >
       {children}
