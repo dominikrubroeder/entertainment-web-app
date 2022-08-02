@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { EntityContext } from '../../store/entityContext';
-import CountBadge from '../CountBadge';
 import ResultMessage from '../ResultMessage';
 import TrendingList from './TrendingList';
 

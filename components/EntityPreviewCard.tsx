@@ -11,11 +11,13 @@ import { EntityContext } from '../store/entityContext';
 interface EntityPreviewCardProps {
   data: Entity;
   trendingIsShown?: boolean;
+  index: number;
 }
 
 const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({
   data,
   trendingIsShown = true,
+  index,
 }) => {
   const entityCtx = useContext(EntityContext);
   const id = data.title + data.year;
@@ -39,7 +41,10 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({
 
   if (data.isTrending && trendingIsShown)
     return (
-      <div className="group relative flex justify-end flex-col gap-2 w-[29.375rem] h-[14.375rem] rounded-xl cursor-pointer">
+      <div
+        className="group relative flex justify-end flex-col gap-2 w-[29.375rem] h-[14.375rem] rounded-xl cursor-pointer animate-fadeUp"
+        style={{ animationDelay: `${1000 * index}ms` }}
+      >
         <div className="z-10 bg-gradient-to-b from-black/0 to-black/75 p-6 rounded-b-xl">
           <ul className="flex items-center gap-2 text-xs">
             <li>{data.year}</li>
@@ -73,7 +78,10 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({
     );
 
   return (
-    <div className="group cursor-pointer">
+    <div
+      className="group cursor-pointer opacity-0 invisible animate-fadeUp"
+      style={{ animationDelay: `${100 * index}ms` }}
+    >
       <div className="relative">
         {playOverlay}
 

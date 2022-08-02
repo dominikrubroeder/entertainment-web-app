@@ -19,6 +19,7 @@ const EntityGrid: React.FC<EntityGridProps> = ({
             <EntityPreviewCard
               data={entity}
               trendingIsShown={trendingIsShown}
+              index={index}
             />
           </li>
         );

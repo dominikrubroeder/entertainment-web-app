@@ -12,6 +12,23 @@ module.exports = {
         'app-blue-800': 'hsl(223, 36%, 14%)',
         'app-blue-900': 'hsl(223, 30%, 9%)',
       },
+      keyframes: {
+        fadeUp: {
+          '0%': {
+            transform: 'translateY(4%)',
+            opacity: '0',
+            visibility: 'hidden',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+            visibility: 'visible',
+          },
+        },
+      },
+      animation: {
+        fadeUp: 'fadeUp 1s ease-out forwards',
+      },
     },
   },
   plugins: [],

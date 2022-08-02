@@ -4,8 +4,8 @@ import ResultMessage from '../ResultMessage';
 import RecommendedGrid from './RecommendedGrid';
 
 const Recommended: React.FC = () => {
-  const entityCtx = useContext(EntityContext);
   const [resultsCount, setResultsCount] = useState<number | null>(null);
+  const entityCtx = useContext(EntityContext);
 
   return (
     <section className="pr-4 md:pr-8">
