@@ -7,7 +7,7 @@ const Auth: NextPage = () => {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <div className="max-w-[25rem] w-full m-auto">
+    <div className="max-w-[25rem] w-full m-auto animate-fadeUp">
       <div className="my-20 mx-auto">
         <Logo className="m-auto" />
       </div>

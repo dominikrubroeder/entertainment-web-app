@@ -36,7 +36,7 @@ const TheLayout: React.FC<TheLayoutProps> = ({ children }) => {
 
             <section
               className={`mb-8 ${
-                router.pathname !== '/' ? 'pr-4 md:pr-8' : ''
+                router.pathname !== '/' ? 'px-4 md:px-8' : ''
               }`}
             >
               {children}

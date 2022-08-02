@@ -9,7 +9,7 @@ const Trending: React.FC = () => {
 
   return (
     <section className="pl-4 md:pl-8 lg:pl-0">
-      <h2 className="flex items-center gap-2 text-[2rem] mb-6">
+      <h2 className="grid text-[2rem] mb-6 md:flex md:items-center md:gap-2">
         Trending
         {resultsCount !== null && (
           <ResultMessage

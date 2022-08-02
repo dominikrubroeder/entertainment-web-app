@@ -21,8 +21,8 @@ const RecommendedGrid: React.FC<RecommendedGridProps> = ({
   );
 
   useEffect(() => {
-    if (searchValue !== '') setResultsCount(filteredRecommended.length);
-    if (searchValue === '') setResultsCount(null);
+    if (searchValue !== null) setResultsCount(filteredRecommended.length);
+    if (searchValue === null) setResultsCount(null);
   }, [searchValue, filteredRecommended, setResultsCount]);
 
   if (entityCtx!.searchValue !== null)

@@ -1,8 +1,3 @@
-export enum EntityCategory {
-  movie = 'Movie',
-  tv_series = 'TV Series',
-}
-
 export interface Entity {
   title: string;
   thumbnail: {
@@ -23,23 +18,10 @@ export interface Entity {
   isTrending: boolean;
 }
 
-export type EntityContextType = {
-  entities: Entity[];
-  movies: Entity[];
-  tvseries: Entity[];
-  trending: Entity[];
-  recommended: Entity[];
-  bookmarked: Entity[];
-  bookmarkedMovies: Entity[];
-  bookmarkedTvSeries: Entity[];
-  bookmarkedCount: number;
-  bookmarkedMoviesCount: number;
-  bookmarkedTvSeriesCount: number;
-  toggleBookmarked: (entityId: string) => void;
-  searchValue: string | null;
-  transformedSearchValue: string | null;
-  searchFor: (searchValue: string | null) => void;
-};
+export enum EntityCategory {
+  movie = 'Movie',
+  tv_series = 'TV Series',
+}
 
 export const initialEntities: Entity[] = [
   {
@@ -498,6 +480,24 @@ export const initialEntities: Entity[] = [
     isTrending: false,
   },
 ];
+
+export type EntityContextType = {
+  entities: Entity[];
+  movies: Entity[];
+  tvseries: Entity[];
+  trending: Entity[];
+  recommended: Entity[];
+  bookmarked: Entity[];
+  bookmarkedMovies: Entity[];
+  bookmarkedTvSeries: Entity[];
+  bookmarkedCount: number;
+  bookmarkedMoviesCount: number;
+  bookmarkedTvSeriesCount: number;
+  toggleBookmarked: (entityId: string) => void;
+  searchValue: string | null;
+  transformedSearchValue: string | null;
+  searchFor: (searchValue: string | null) => void;
+};
 
 export interface IconNavProps {
   isActive: boolean;

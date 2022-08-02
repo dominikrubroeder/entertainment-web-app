@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import IconNavBookmark from '../icons/IconNavBookmark';
-import IconBookmark from '../icons/IconNavBookmark';
 import IconNavHome from '../icons/IconNavHome';
 import IconNavMovies from '../icons/IconNavMovies';
 import IconNavTvSeries from '../icons/IconNavTvSeries';

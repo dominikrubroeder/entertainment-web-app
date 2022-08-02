@@ -8,8 +8,8 @@ const Recommended: React.FC = () => {
   const entityCtx = useContext(EntityContext);
 
   return (
-    <section className="pr-4 md:pr-8">
-      <h2 className="flex items-center gap-2 text-[2rem] mb-6">
+    <section className="px-4 md:px-8">
+      <h2 className="grid text-[2rem] mb-6 md:flex md:items-center md:gap-2">
         Recommended for you
         {resultsCount !== null && (
           <ResultMessage
