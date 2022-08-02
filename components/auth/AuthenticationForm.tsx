@@ -5,7 +5,8 @@ interface AuthenticationFormProps {
 }
 
 const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
-  const inputClasses = 'p-4 bg-transparent border-b-2 border-b-app-blue-300';
+  const inputClasses =
+    'p-4 bg-transparent border-b-2 border-b-app-blue-300 focus:border-b-white focus:outline-none';
 
   return (
     <form className="grid gap-4">

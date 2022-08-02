@@ -14,7 +14,11 @@ const ResultMessage: React.FC<ResultMessageProps> = ({
 }) => {
   return (
     <span className="text-xs flex gap-2 items-center pt-1.5">
-      <CountBadge>{count}</CountBadge> results found for {searchValue}
+      <CountBadge>{count}</CountBadge>
+      <span>
+        results found for
+        <span className="font-bold"> {searchValue}</span>
+      </span>
     </span>
   );
 };
