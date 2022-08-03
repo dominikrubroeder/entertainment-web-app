@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useContext } from 'react';
 import EntityGrid from '../../components/EntityGrid';
+import Heading from '../../components/Heading';
 import ResultMessage from '../../components/ResultMessage';
 import { EntityContext } from '../../store/entityContext';
 
@@ -22,7 +23,7 @@ const Movies: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Movies - Web entertainment app | frontendmentor.io</title>
+        <title>Movies | Web entertainment app | frontendmentor.io</title>
         <meta
           name="description"
           content="Web entertainment app | challenge by frontendmentor.io, solution by Dominik Rubröder | Search movies"
@@ -30,7 +31,7 @@ const Movies: NextPage = () => {
       </Head>
 
       <>
-        <h2 className="text-[2rem] mb-6 flex items-center gap-4">
+        <Heading as="h2">
           Movies
           {count !== null && (
             <ResultMessage
@@ -38,7 +39,7 @@ const Movies: NextPage = () => {
               searchValue={entityCtx!.searchValue!}
             />
           )}
-        </h2>
+        </Heading>
 
         <EntityGrid
           data={

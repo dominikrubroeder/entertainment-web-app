@@ -24,7 +24,7 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({
 
   const bookmark = (
     <button
-      className="absolute top-4 right-4 w-8 h-8 rounded-full bg-app-blue-900/50 z-50 flex items-center justify-center cursor-pointer"
+      className="absolute top-4 right-4 w-8 h-8 rounded-full bg-app-blue-900/50 z-50 flex items-center justify-center cursor-pointer hover:animate-scale"
       onClick={() => entityCtx?.toggleBookmarked(id)}
     >
       {data.isBookmarked ? <IconBookmarkFill /> : <IconBookmarkEmpty />}

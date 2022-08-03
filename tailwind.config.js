@@ -25,9 +25,18 @@ module.exports = {
             visibility: 'visible',
           },
         },
+        scale: {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '100%': {
+            transform: 'scale(1.2)',
+          },
+        },
       },
       animation: {
         fadeUp: 'fadeUp 1s ease-out forwards',
+        scale: 'scale .2s ease-out forwards',
       },
     },
   },

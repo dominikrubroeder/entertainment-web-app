@@ -19,12 +19,14 @@ const TheSidebar: React.FC = () => {
         <div className="lg:hidden"></div>
       </div>
 
-      <Image
-        src="/assets/image-avatar.png"
-        width={40}
-        height={40}
-        alt="User profile image"
-      />
+      <div className="cursor-pointer hover:animate-scale">
+        <Image
+          src="/assets/image-avatar.png"
+          width={40}
+          height={40}
+          alt="User profile image"
+        />
+      </div>
     </header>
   );
 };

@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useContext } from 'react';
 import CountBadge from '../../components/CountBadge';
 import EntityGrid from '../../components/EntityGrid';
+import Heading from '../../components/Heading';
 import ResultMessage from '../../components/ResultMessage';
 import { EntityContext } from '../../store/entityContext';
 
@@ -35,12 +36,12 @@ const Bookmarked: NextPage = () => {
 
   const pageContent =
     entityCtx?.bookmarkedCount === 0 ? (
-      <h1>No bookmarked items.</h1>
+      <Heading>No bookmarked items.</Heading>
     ) : (
       <section className="flex flex-col gap-8">
         {entityCtx!.bookmarkedMoviesCount > 0 && (
           <section>
-            <h2 className="text-[2rem] mb-6 flex items-center gap-4">
+            <Heading as="h2">
               Bookmarked Movies
               {entityCtx?.searchValue === null ? (
                 <CountBadge>{entityCtx?.bookmarkedMoviesCount}</CountBadge>
@@ -50,7 +51,7 @@ const Bookmarked: NextPage = () => {
                   searchValue={searchValue!}
                 />
               )}
-            </h2>
+            </Heading>
 
             <EntityGrid
               data={
@@ -65,7 +66,7 @@ const Bookmarked: NextPage = () => {
 
         {entityCtx!.bookmarkedTvSeriesCount > 0 && (
           <section>
-            <h2 className="text-[2rem] mb-6 flex items-center gap-4">
+            <Heading as="h2">
               Bookmarked TV Series
               {entityCtx?.searchValue === null ? (
                 <CountBadge>{entityCtx?.bookmarkedTvSeriesCount}</CountBadge>
@@ -75,7 +76,7 @@ const Bookmarked: NextPage = () => {
                   searchValue={searchValue!}
                 />
               )}
-            </h2>
+            </Heading>
 
             <EntityGrid
               data={
@@ -93,7 +94,7 @@ const Bookmarked: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Bookmarked - Web entertainment app | frontendmentor.io</title>
+        <title>Bookmarked | Web entertainment app | frontendmentor.io</title>
         <meta
           name="description"
           content="Web entertainment app | challenge by frontendmentor.io, solution by Dominik Rubröder | Search bookmarked"

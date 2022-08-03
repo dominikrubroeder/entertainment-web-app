@@ -39,11 +39,6 @@
 
 @layer components {
   svg {
-    /* fill: #5a698f; */
     flex-shrink: 0;
-  }
-
-  svg :hover {
-    /* fill: #fff; */
   }
 }
