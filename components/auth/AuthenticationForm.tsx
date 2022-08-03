@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import LoadingSpinner from '../LoadingSpinner';
+import { LogoutIcon, PlusIcon } from '@heroicons/react/solid';
 
 interface AuthenticationFormProps {
   isLogin: boolean;
@@ -53,7 +54,15 @@ const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
 
       <button className="bg-app-primary-red text-white p-4 rounded-xl">
         {isLoading && 'Loading...'}
-        {!isLoading && isLogin ? 'Login to your account' : 'Create account'}
+        {!isLoading && isLogin ? (
+          <span className="flex items-center gap-2 justify-center">
+            Login to your account <LogoutIcon className="w-5 h-5 text-white" />
+          </span>
+        ) : (
+          <span className="flex items-center gap-2 justify-center">
+            Create account <PlusIcon className="w-5 h-5 text-white" />
+          </span>
+        )}
       </button>
     </form>
   );
