@@ -1,10 +1,5 @@
 import React, { useState, createContext } from 'react';
-import {
-  AccountContextType,
-  defaultAccount,
-  defaultUsers,
-  User,
-} from '../data/data';
+import { AccountContextType, defaultAccount, User } from '../data/data';
 
 export const AccountContext = createContext<AccountContextType | null>(null);
 

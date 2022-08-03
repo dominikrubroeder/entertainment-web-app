@@ -1,9 +1,15 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Recommended from '../components/recommended/Recommended';
-import Trending from '../components/trending/Trending';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const Home: NextPage = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace('/browse');
+  });
+
   return (
     <div>
       <Head>
@@ -19,11 +25,6 @@ const Home: NextPage = () => {
           sizes="32x32"
         />
       </Head>
-
-      <div className="flex flex-col gap-8">
-        <Trending />
-        <Recommended />
-      </div>
     </div>
   );
 };

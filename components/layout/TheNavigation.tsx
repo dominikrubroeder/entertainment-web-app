@@ -19,27 +19,29 @@ const TheNavigation: React.FC<TheNavigationProps> = ({ className }) => {
         className ? className : ''
       }`}
     >
-      <Link href="/">
+      <Link href="/browse">
         <li className="group hover:cursor-pointer">
-          <IconNavHome isActive={router.pathname === '/'} />
+          <IconNavHome isActive={router.pathname === '/browse'} />
         </li>
       </Link>
 
-      <Link href="/movies">
+      <Link href="/browse/movies">
         <li className="group hover:cursor-pointer">
-          <IconNavMovies isActive={router.pathname === '/movies'} />
+          <IconNavMovies isActive={router.pathname === '/browse/movies'} />
         </li>
       </Link>
 
-      <Link href="/tvseries">
+      <Link href="/browse/tvseries">
         <li className="group hover:cursor-pointer">
-          <IconNavTvSeries isActive={router.pathname === '/tvseries'} />
+          <IconNavTvSeries isActive={router.pathname === '/browse/tvseries'} />
         </li>
       </Link>
 
-      <Link href="/bookmarked">
+      <Link href="/browse/bookmarked">
         <li className="group hover:cursor-pointer">
-          <IconNavBookmark isActive={router.pathname === '/bookmarked'} />
+          <IconNavBookmark
+            isActive={router.pathname === '/browse/bookmarked'}
+          />
         </li>
       </Link>
     </ul>

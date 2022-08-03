@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { User } from '../../data/data';
 import Heading from '../../components/Heading';
 import React, { useContext, useRef, useState } from 'react';
-import { AccountContext } from '../../store/AccountContext';
+import { AccountContext } from '../../store/accountContext';
 import Link from 'next/link';
 import { ArrowNarrowRightIcon, LogoutIcon } from '@heroicons/react/solid';
 
@@ -46,7 +46,10 @@ const WhoIsWatching: NextPage = () => {
   };
 
   return (
-    <div className="relative flex items-center justify-center flex-col gap-4 h-screen">
+    <div
+      className="relative flex items-center justify-center flex-col gap-4 h-screen"
+      onClick={createUserHandler}
+    >
       <Head>
         <title>
           Who is watching | Web entertainment app | frontendmentor.io
@@ -100,7 +103,6 @@ const WhoIsWatching: NextPage = () => {
               <input
                 placeholder="Username"
                 className="bg-transparent text-white text-center focus:outline-none"
-                autoFocus
                 ref={usernameRef}
               />
             </form>

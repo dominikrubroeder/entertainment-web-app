@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useContext } from 'react';
-import { AccountContext } from '../../store/AccountContext';
+import { AccountContext } from '../../store/accountContext';
 import Logo from '../icons/Logo';
 import TheNavigation from './TheNavigation';
 

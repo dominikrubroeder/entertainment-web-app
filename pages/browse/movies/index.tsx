@@ -1,10 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useContext } from 'react';
-import EntityGrid from '../../components/EntityGrid';
-import Heading from '../../components/Heading';
-import ResultMessage from '../../components/ResultMessage';
-import { EntityContext } from '../../store/entityContext';
+import EntityGrid from '../../../components/EntityGrid';
+import Heading from '../../../components/Heading';
+import ResultMessage from '../../../components/ResultMessage';
+import { EntityContext } from '../../../store/entityContext';
 
 const Movies: NextPage = () => {
   const entityCtx = useContext(EntityContext);
