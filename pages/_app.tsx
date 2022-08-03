@@ -2,17 +2,17 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import TheLayout from '../components/layout/TheLayout';
 import EntityProvider from '../store/entityContext';
-import UserProvider from '../store/userContext';
+import AccountProvider from '../store/AccountContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <UserProvider>
+    <AccountProvider>
       <EntityProvider>
         <TheLayout>
           <Component {...pageProps} />
         </TheLayout>
       </EntityProvider>
-    </UserProvider>
+    </AccountProvider>
   );
 }
 

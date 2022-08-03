@@ -5,11 +5,11 @@ import { useRouter } from 'next/router';
 import { defaultUsers, User } from '../../data/data';
 import Heading from '../../components/Heading';
 import { useContext } from 'react';
-import { UserContext } from '../../store/userContext';
+import { AccountContext } from '../../store/AccountContext';
 
 const WhoIsWatching: NextPage = () => {
   const router = useRouter();
-  const userCtx = useContext(UserContext);
+  const userCtx = useContext(AccountContext);
 
   const profileImageClassNames = `w-40 h-40 flex items-center justify-center bg-app-blue-800 rounded-full border-4 border-transparent cursor-pointer hover:animate-scale-small hover:border-app-primary-red`;
 
@@ -19,6 +19,14 @@ const WhoIsWatching: NextPage = () => {
 
     // Redirect to dashboard
     router.replace('/');
+  };
+
+  const createUserHandler = () => {
+    const newUser: User = {
+      id: Math.random(),
+      username: 'fdsf',
+      isActiveUser: false,
+    };
   };
 
   return (
@@ -67,7 +75,9 @@ const WhoIsWatching: NextPage = () => {
           </li>
         ))}
 
-        <div className={profileImageClassNames}>+</div>
+        <div className={profileImageClassNames} onClick={createUserHandler}>
+          +
+        </div>
       </ul>
     </div>
   );

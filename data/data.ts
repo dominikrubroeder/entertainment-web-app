@@ -524,9 +524,17 @@ export const defaultUsers: User[] = [
   },
 ];
 
-export type UserContextType = {
-  currentUsers: User[];
+export type AccountContextType = {
+  users: User[];
   activeUser: User;
   setActiveUser: (user: User) => void;
-  setCurrentUsers: (user: User) => void;
+  setUsers: (user: User) => void;
+};
+
+export interface Account {
+  users: User[];
+}
+
+export const defaultAccount = {
+  users: defaultUsers,
 };

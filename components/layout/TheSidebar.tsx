@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useContext } from 'react';
-import { UserContext } from '../../store/userContext';
+import { AccountContext } from '../../store/AccountContext';
 import Logo from '../icons/Logo';
 import TheNavigation from './TheNavigation';
 
 const TheSidebar: React.FC = () => {
-  const userCtx = useContext(UserContext);
+  const userCtx = useContext(AccountContext);
 
   return (
     <header className="p-4 mb-6 bg-app-blue-800 flex items-center justify-between z-50 md:p-8 md:m-8 md:rounded-xl lg:fixed lg:left-0 lg:top-0 lg:bottom-0 lg:flex-col">
