@@ -502,3 +502,24 @@ export type EntityContextType = {
 export interface IconNavProps {
   isActive: boolean;
 }
+
+export interface User {
+  id: number;
+  username: string;
+  image?: string;
+  isActiveUser: boolean;
+}
+
+export const defaultUsers: User[] = [
+  {
+    id: 1,
+    username: 'Lucas',
+    image: '/assets/image-avatar.png',
+    isActiveUser: true,
+  },
+  {
+    id: 2,
+    username: 'Robin',
+    isActiveUser: false,
+  },
+];

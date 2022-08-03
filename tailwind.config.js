@@ -33,10 +33,19 @@ module.exports = {
             transform: 'scale(1.2)',
           },
         },
+        'scale-small': {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '100%': {
+            transform: 'scale(1.085)',
+          },
+        },
       },
       animation: {
         fadeUp: 'fadeUp 1s ease-out forwards',
         scale: 'scale .2s ease-out forwards',
+        'scale-small': 'scale-small .2s ease-out forwards',
       },
     },
   },

@@ -20,12 +20,16 @@ const TheSidebar: React.FC = () => {
       </div>
 
       <div className="cursor-pointer hover:animate-scale">
-        <Image
-          src="/assets/image-avatar.png"
-          width={40}
-          height={40}
-          alt="User profile image"
-        />
+        <Link href="/whoiswatching">
+          <a>
+            <Image
+              src="/assets/image-avatar.png"
+              width={40}
+              height={40}
+              alt="User profile image"
+            />
+          </a>
+        </Link>
       </div>
     </header>
   );
