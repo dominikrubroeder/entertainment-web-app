@@ -23,7 +23,7 @@ export enum EntityCategory {
   tv_series = 'TV Series',
 }
 
-export const initialEntities: Entity[] = [
+export const defaultEntities: Entity[] = [
   {
     title: 'Beyond Earth',
     thumbnail: {
@@ -523,3 +523,10 @@ export const defaultUsers: User[] = [
     isActiveUser: false,
   },
 ];
+
+export type UserContextType = {
+  currentUsers: User[];
+  activeUser: User;
+  setActiveUser: (user: User) => void;
+  setCurrentUsers: (user: User) => void;
+};

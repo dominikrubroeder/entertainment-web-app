@@ -3,7 +3,7 @@ import {
   Entity,
   EntityCategory,
   EntityContextType,
-  initialEntities,
+  defaultEntities,
 } from '../data/data';
 
 export const EntityContext = createContext<EntityContextType | null>(null);
@@ -13,7 +13,7 @@ type EntityProviderProps = {
 };
 
 const EntityProvider: React.FC<EntityProviderProps> = ({ children }) => {
-  const [entities, setEntities] = useState<Entity[]>(initialEntities);
+  const [entities, setEntities] = useState<Entity[]>(defaultEntities);
   const [searchValue, setSearchValue] = useState<null | string>(null);
 
   const movies = entities.filter(

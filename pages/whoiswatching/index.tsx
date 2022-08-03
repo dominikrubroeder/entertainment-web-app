@@ -2,16 +2,21 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { defaultUsers } from '../../data/data';
+import { defaultUsers, User } from '../../data/data';
 import Heading from '../../components/Heading';
+import { useContext } from 'react';
+import { UserContext } from '../../store/userContext';
 
 const WhoIsWatching: NextPage = () => {
   const router = useRouter();
+  const userCtx = useContext(UserContext);
 
   const profileImageClassNames = `w-40 h-40 flex items-center justify-center bg-app-blue-800 rounded-full border-4 border-transparent cursor-pointer hover:animate-scale-small hover:border-app-primary-red`;
 
-  const onClickHandler = () => {
+  const setActiveUserHandler = (user: User) => {
     // Set selected user
+    userCtx?.setActiveUser(user);
+
     // Redirect to dashboard
     router.replace('/');
   };
@@ -36,11 +41,11 @@ const WhoIsWatching: NextPage = () => {
             <div
               className="grid gap-4 text-center opacity-0 invisible animate-fadeUp"
               style={{ animationDelay: `${index * 400}ms` }}
-              onClick={onClickHandler}
+              onClick={() => setActiveUserHandler(user)}
             >
               <div
                 className={`w-40 h-40 flex items-center justify-center border-4 ${
-                  user.isActiveUser
+                  user.id === userCtx?.activeUser.id
                     ? 'border-app-primary-red'
                     : 'border-transparent'
                 } rounded-full cursor-pointer bg-app-blue-800 hover:border-app-primary-red hover:animate-scale-small`}
