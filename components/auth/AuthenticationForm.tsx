@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import LoadingSpinner from '../LoadingSpinner';
 import { LogoutIcon, PlusIcon } from '@heroicons/react/solid';
+import { AccountContext } from '../../store/accountContext';
 
 interface AuthenticationFormProps {
   isLogin: boolean;
@@ -10,6 +11,7 @@ interface AuthenticationFormProps {
 const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const accountCtx = useContext(AccountContext);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,7 +22,8 @@ const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
 
     setTimeout(() => {
       setIsLoading(false);
-      router.replace('/');
+      accountCtx?.setAuthenticated(true);
+      router.replace('/browse');
     }, 2000);
   };
 

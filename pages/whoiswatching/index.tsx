@@ -38,7 +38,7 @@ const WhoIsWatching: NextPage = () => {
       isActiveUser: false,
     };
 
-    accountCtx?.setUsers(newUser);
+    accountCtx?.addUser(newUser);
 
     setIsCreateUser(false);
 

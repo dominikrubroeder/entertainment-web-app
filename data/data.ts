@@ -525,10 +525,12 @@ export const defaultUsers: User[] = [
 ];
 
 export type AccountContextType = {
+  authenticated: boolean;
+  setAuthenticated: (isAuthenticated: boolean) => void;
   users: User[];
+  addUser: (user: User) => void;
   activeUser: User;
   setActiveUser: (user: User) => void;
-  setUsers: (user: User) => void;
 };
 
 export interface Account {
