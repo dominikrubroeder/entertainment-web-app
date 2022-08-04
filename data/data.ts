@@ -510,6 +510,12 @@ export interface User {
   isActiveUser: boolean;
 }
 
+export const defaultUser: User = {
+  id: 1,
+  username: 'Username',
+  isActiveUser: true,
+};
+
 export const defaultUsers: User[] = [
   {
     id: 1,
@@ -519,27 +525,35 @@ export const defaultUsers: User[] = [
   },
   {
     id: 2,
-    username: 'Robin',
+    username: 'Tyler',
     isActiveUser: false,
   },
 ];
 
 export type AccountContextType = {
-  authenticated: boolean;
-  setAuthenticated: (isAuthenticated: boolean) => void;
-  username: string;
-  users: User[];
+  account: Account | null;
+  setAccount: (account: Account | null) => void;
+  login: (username: string, password: string) => void;
+  logout: () => void;
+  signUp: (newAccount: Account) => void;
+  users: User[] | null;
   addUser: (user: User) => void;
-  activeUser: User;
+  activeUser: User | null;
   setActiveUser: (user: User) => void;
 };
 
 export interface Account {
+  id: string;
   username: string;
+  password?: string;
+  activeUser: User;
   users: User[];
 }
 
-export const defaultAccount = {
-  username: 'demo@webentertainmentapp.com',
+export const defaultAccount: Account = {
+  id: 'gHsfgjdddafs424g3',
+  username: 'johndoe@webentertainmentapp.com',
+  password: 'johndoe123',
+  activeUser: defaultUsers[0],
   users: defaultUsers,
 };

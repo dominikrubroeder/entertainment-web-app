@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import LoadingSpinner from '../LoadingSpinner';
 import { LogoutIcon, PlusIcon } from '@heroicons/react/solid';
 import { AccountContext } from '../../store/accountContext';
+import { Account, defaultUser } from '../../data/data';
 
 interface AuthenticationFormProps {
   isLogin: boolean;
@@ -12,19 +13,58 @@ const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const accountCtx = useContext(AccountContext);
+  const usernameInputRef = useRef<HTMLInputElement | null>(null);
+  const passwordInputRef = useRef<HTMLInputElement | null>(null);
+  const passwordRepeatInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const usernameInputValue = usernameInputRef.current?.value.trim();
+    const passwordInputValue = passwordInputRef.current?.value.trim();
+    const passwordRepeatInputValue =
+      passwordRepeatInputRef.current?.value.trim();
+
+    if (usernameInputValue === '' || passwordInputValue === '') return;
+
     setIsLoading(true);
 
-    // validate...
+    if (isLogin) {
+      accountCtx?.login(usernameInputValue!, passwordInputValue!);
 
-    setTimeout(() => {
-      setIsLoading(false);
-      accountCtx?.setAuthenticated(true);
-      router.replace('/browse');
-    }, 2000);
+      setTimeout(() => {
+        setIsLoading(false);
+        router.replace('/browse');
+      }, 2000);
+
+      return;
+    }
+
+    if (!isLogin) {
+      if (passwordRepeatInputValue === '') return;
+
+      if (passwordInputValue !== passwordRepeatInputValue) {
+        console.log('Passwords do not match.');
+        return;
+      }
+
+      const newAccount: Account = {
+        id: 'idjohndoe',
+        username: usernameInputValue!,
+        password: passwordInputValue!,
+        activeUser: defaultUser,
+        users: [defaultUser],
+      };
+
+      accountCtx?.signUp(newAccount);
+
+      setTimeout(() => {
+        setIsLoading(false);
+        router.replace('/whoiswatching');
+      }, 2000);
+
+      return;
+    }
   };
 
   const inputClasses =
@@ -43,15 +83,22 @@ const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
         placeholder="Email address"
         type="email"
         className={inputClasses}
+        ref={usernameInputRef}
       />
 
-      <input placeholder="Password" type="password" className={inputClasses} />
+      <input
+        placeholder="Password"
+        type="password"
+        className={inputClasses}
+        ref={passwordInputRef}
+      />
 
       {!isLogin && (
         <input
           placeholder="Repeat password"
           type="password"
           className={inputClasses}
+          ref={passwordRepeatInputRef}
         />
       )}
 

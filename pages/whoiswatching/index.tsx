@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import React from 'react';
 import Head from 'next/head';
 import Heading from '../../components/typography/Heading';
-import AddUser from '../../components/account/AddUser';
+import WhoIsWatchingAddUser from '../../components/whoiswatching/WhoIsWatchingAddUser';
 import UserList from '../../components/account/UserList';
 import WhoIsWatchingFooter from '../../components/whoiswatching/WhoIsWatchingFooter';
 
@@ -23,7 +23,7 @@ const WhoIsWatching: NextPage = () => {
 
       <div className="flex flex-wrap gap-4">
         <UserList />
-        <AddUser />
+        <WhoIsWatchingAddUser />
       </div>
 
       <WhoIsWatchingFooter />

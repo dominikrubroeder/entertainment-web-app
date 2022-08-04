@@ -8,7 +8,7 @@ const LogoutAction: React.FC = () => {
   return (
     <div
       className="group flex items-center gap-2 cursor-pointer"
-      onClick={() => accountCtx?.setAuthenticated(false)}
+      onClick={() => accountCtx?.setAccount(null)}
     >
       <span className="text-app-blue-300 group-hover:text-white">Logout</span>
       <LogoutIcon className="h-5 w-5 text-app-primary-red" />

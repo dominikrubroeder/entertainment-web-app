@@ -30,8 +30,8 @@ const Home: NextPage = () => {
         <div className="flex items-center justify-between gap-2 flex-wrap">
           <Heading as="h1" mb={false}>
             Account settings:
-            <span className="text-app-primary-red text-xs">
-              {accoutCtx?.username}
+            <span className="text-app-primary-red text-xs invisible opacity-0 animate-fadeToRight animation-delay-400">
+              {accoutCtx?.account?.username}
             </span>
           </Heading>
 

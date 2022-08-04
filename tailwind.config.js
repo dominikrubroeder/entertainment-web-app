@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -25,6 +28,18 @@ module.exports = {
             visibility: 'visible',
           },
         },
+        fadeToRight: {
+          '0%': {
+            transform: 'translateX(-4%)',
+            opacity: '0',
+            visibility: 'hidden',
+          },
+          '100%': {
+            transform: 'translateX(0)',
+            opacity: '1',
+            visibility: 'visible',
+          },
+        },
         scale: {
           '0%': {
             transform: 'scale(1)',
@@ -44,10 +59,43 @@ module.exports = {
       },
       animation: {
         fadeUp: 'fadeUp 1s ease-out forwards',
+        fadeToRight: 'fadeToRight 1s ease-out forwards',
         scale: 'scale .2s ease-out forwards',
         'scale-small': 'scale-small .2s ease-out forwards',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.animation-delay-100': {
+          'animation-delay': '100ms',
+        },
+        '.animation-delay-200': {
+          'animation-delay': '200ms',
+        },
+        '.animation-delay-300': {
+          'animation-delay': '300ms',
+        },
+        '.animation-delay-400': {
+          'animation-delay': '400ms',
+        },
+        '.animation-delay-500': {
+          'animation-delay': '500ms',
+        },
+        '.animation-delay-600': {
+          'animation-delay': '600ms',
+        },
+        '.animation-delay-700': {
+          'animation-delay': '700ms',
+        },
+        '.animation-delay-800': {
+          'animation-delay': '800ms',
+        },
+        '.animation-delay-1000': {
+          'animation-delay': '1000ms',
+        },
+      });
+    }),
+  ],
 };
