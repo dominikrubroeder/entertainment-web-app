@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useContext } from 'react';
 import EntityGrid from '../../../components/EntityGrid';
-import Heading from '../../../components/Heading';
+import Heading from '../../../components/typography/Heading';
 import ResultMessage from '../../../components/ResultMessage';
 import { EntityContext } from '../../../store/entityContext';
 

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import { User } from '../../data/data';
 import { AccountContext } from '../../store/accountContext';
-import Heading from '../Heading';
+import Heading from '../typography/Heading';
 
 const UserList: React.FC = () => {
   const router = useRouter();

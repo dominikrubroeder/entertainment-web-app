@@ -42,6 +42,7 @@ const AccountProvider: React.FC<AccountProviderProps> = ({ children }) => {
       value={{
         authenticated,
         setAuthenticated: setAuthenticatedHandler,
+        username: account.username,
         users,
         addUser: addUserHandler,
         activeUser,

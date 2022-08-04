@@ -527,6 +527,7 @@ export const defaultUsers: User[] = [
 export type AccountContextType = {
   authenticated: boolean;
   setAuthenticated: (isAuthenticated: boolean) => void;
+  username: string;
   users: User[];
   addUser: (user: User) => void;
   activeUser: User;
@@ -534,9 +535,11 @@ export type AccountContextType = {
 };
 
 export interface Account {
+  username: string;
   users: User[];
 }
 
 export const defaultAccount = {
+  username: 'demo@webentertainmentapp.com',
   users: defaultUsers,
 };

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import React from 'react';
 import Head from 'next/head';
-import Heading from '../../components/Heading';
+import Heading from '../../components/typography/Heading';
 import AddUser from '../../components/account/AddUser';
 import UserList from '../../components/account/UserList';
 import WhoIsWatchingFooter from '../../components/whoiswatching/WhoIsWatchingFooter';

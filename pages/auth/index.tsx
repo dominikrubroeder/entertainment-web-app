@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import Logo from '../../components/icons/Logo';
 import AuthenticationForm from '../../components/auth/AuthenticationForm';
 import Head from 'next/head';
-import Heading from '../../components/Heading';
+import Heading from '../../components/typography/Heading';
 
 const Auth: NextPage = () => {
   const [isLogin, setIsLogin] = useState(true);
