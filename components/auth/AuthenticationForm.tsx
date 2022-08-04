@@ -32,7 +32,7 @@ const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
 
   if (isLoading)
     return (
-      <div className="animate-bounce m-auto my-10">
+      <div className="animate-bounce m-auto mb-10">
         <LoadingSpinner className="text-app-primary-red" />
       </div>
     );
@@ -57,6 +57,7 @@ const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
 
       <button className="bg-app-primary-red text-white p-4 rounded-xl">
         {isLoading && 'Loading...'}
+
         {!isLoading && isLogin ? (
           <span className="flex items-center gap-2 justify-center">
             Login to your account <LogoutIcon className="w-5 h-5 text-white" />
