@@ -92,7 +92,7 @@ const Bookmarked: NextPage = () => {
     );
 
   return (
-    <div>
+    <section>
       <Head>
         <title>Bookmarked | Web entertainment app | frontendmentor.io</title>
         <meta
@@ -102,7 +102,7 @@ const Bookmarked: NextPage = () => {
       </Head>
 
       {pageContent}
-    </div>
+    </section>
   );
 };
 

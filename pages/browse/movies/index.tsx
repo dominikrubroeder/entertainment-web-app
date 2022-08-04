@@ -21,7 +21,7 @@ const Movies: NextPage = () => {
   const count = searchValue === null ? null : filteredMovies.length;
 
   return (
-    <div>
+    <section>
       <Head>
         <title>Movies | Web entertainment app | frontendmentor.io</title>
         <meta
@@ -48,7 +48,7 @@ const Movies: NextPage = () => {
           trendingIsShown={false}
         />
       </>
-    </div>
+    </section>
   );
 };
 

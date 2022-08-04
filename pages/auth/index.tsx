@@ -9,7 +9,7 @@ const Auth: NextPage = () => {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <>
+    <section>
       <Head>
         <title>
           Login or sign up | Web entertainment app | frontendmentor.io
@@ -19,6 +19,7 @@ const Auth: NextPage = () => {
           content="Web entertainment app | challenge by frontendmentor.io, solution by Dominik Rubröder | Login or Sign Up"
         />
       </Head>
+
       <div className="max-w-[25rem] w-full m-auto animate-fadeUp">
         <div className="my-20 mx-auto">
           <Logo className="m-auto" />
@@ -48,7 +49,7 @@ const Auth: NextPage = () => {
           <i>savepassword</i> as valid access data.
         </p>
       </div>
-    </>
+    </section>
   );
 };
 

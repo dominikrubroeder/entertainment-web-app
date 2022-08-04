@@ -8,7 +8,7 @@ import WhoIsWatchingFooter from '../../components/whoiswatching/WhoIsWatchingFoo
 
 const WhoIsWatching: NextPage = () => {
   return (
-    <div className="relative flex items-center justify-center flex-col gap-4 h-screen">
+    <section className="relative flex items-center justify-center flex-col gap-4 h-screen">
       <Head>
         <title>
           Who is watching | Web entertainment app | frontendmentor.io
@@ -21,13 +21,13 @@ const WhoIsWatching: NextPage = () => {
 
       <Heading as="h1">Who is watching?</Heading>
 
-      <section className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4">
         <UserList />
         <AddUser />
-      </section>
+      </div>
 
       <WhoIsWatchingFooter />
-    </div>
+    </section>
   );
 };
 

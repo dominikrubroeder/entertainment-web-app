@@ -5,7 +5,7 @@ import Trending from '../../components/trending/Trending';
 
 const Browse: NextPage = () => {
   return (
-    <div>
+    <section>
       <Head>
         <title>Browse all | Web entertainment app | frontendmentor.io</title>
         <meta
@@ -18,7 +18,7 @@ const Browse: NextPage = () => {
         <Trending />
         <Recommended />
       </div>
-    </div>
+    </section>
   );
 };
 

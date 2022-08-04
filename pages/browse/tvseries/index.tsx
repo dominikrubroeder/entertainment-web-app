@@ -21,7 +21,7 @@ const TvSeries: NextPage = () => {
   const count = searchValue === null ? null : filteredTvSeries.length;
 
   return (
-    <div>
+    <section>
       <Head>
         <title>TV Series | Web entertainment app | frontendmentor.io</title>
         <meta
@@ -50,7 +50,7 @@ const TvSeries: NextPage = () => {
           trendingIsShown={false}
         />
       </>
-    </div>
+    </section>
   );
 };
 

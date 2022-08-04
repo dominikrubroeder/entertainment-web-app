@@ -24,7 +24,7 @@ const TheSidebar: React.FC = () => {
 
       <div className="cursor-pointer hover:animate-scale">
         <Link href="/whoiswatching">
-          <a>
+          <a className="flex items-center justify-center h-10 w-10 rounded-full border-2 border-transparent hover:border-app-primary-red">
             {userCtx?.activeUser.image ? (
               <Image
                 src={userCtx?.activeUser.image}
