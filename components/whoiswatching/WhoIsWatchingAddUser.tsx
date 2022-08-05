@@ -1,10 +1,4 @@
-import {
-  UserIcon,
-  UserAddIcon,
-  PencilIcon,
-  CheckIcon,
-  UserRemoveIcon,
-} from '@heroicons/react/solid';
+import { UserAddIcon, PencilIcon, CheckIcon } from '@heroicons/react/solid';
 import React, { useContext, useRef, useState } from 'react';
 import { User } from '../../data/data';
 import { AccountContext } from '../../store/accountContext';

@@ -32,9 +32,9 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
     >
       <Link href="/whoiswatching">
         {children ? (
-          children
+          <a className="flex items-center justify-center">{children}</a>
         ) : (
-          <UserIcon className="text-app-blue-300 translate-y-4" />
+          <UserIcon className="text-app-blue-300 translate-y-[10%]" />
         )}
       </Link>
     </div>

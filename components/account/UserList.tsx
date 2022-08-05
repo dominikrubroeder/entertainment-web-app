@@ -1,4 +1,3 @@
-import { UserIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
@@ -33,15 +32,13 @@ const UserList: React.FC = () => {
               height="w-40"
               activeBorder={user.id === accountCtx?.activeUser!.id}
             >
-              {user.image ? (
+              {user.image && (
                 <Image
                   src={user.image}
                   width={160}
                   height={160}
                   alt={`${user.username} profile image`}
                 />
-              ) : (
-                <UserIcon className="text-app-blue-300 translate-y-4" />
               )}
             </UserAvatar>
 
