@@ -1,9 +1,11 @@
+import { UserIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import { User } from '../../data/data';
 import { AccountContext } from '../../store/accountContext';
 import Heading from '../typography/Heading';
+import UserAvatar from './UserAvatar';
 
 const UserList: React.FC = () => {
   const router = useRouter();
@@ -19,19 +21,17 @@ const UserList: React.FC = () => {
 
   return (
     <ul className="flex flex-wrap gap-4">
-      {accountCtx?.users.map((user, index) => (
+      {accountCtx?.users!.map((user, index) => (
         <li key={user.id}>
           <div
             className="grid gap-4 text-center opacity-0 invisible animate-fadeUp"
             style={{ animationDelay: `${index * 400}ms` }}
             onClick={() => setActiveUserHandler(user)}
           >
-            <div
-              className={`w-40 h-40 flex items-center justify-center border-4 ${
-                user.id === accountCtx?.activeUser.id
-                  ? 'border-app-primary-red'
-                  : 'border-transparent'
-              } rounded-full cursor-pointer bg-app-blue-800 hover:border-app-primary-red hover:animate-scale-small`}
+            <UserAvatar
+              width="w-40"
+              height="w-40"
+              activeBorder={user.id === accountCtx?.activeUser!.id}
             >
               {user.image ? (
                 <Image
@@ -41,9 +41,9 @@ const UserList: React.FC = () => {
                   alt={`${user.username} profile image`}
                 />
               ) : (
-                'No image.'
+                <UserIcon className="text-app-blue-300 translate-y-4" />
               )}
-            </div>
+            </UserAvatar>
 
             <Heading>{user.username}</Heading>
           </div>

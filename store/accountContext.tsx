@@ -114,6 +114,11 @@ const AccountProvider: React.FC<AccountProviderProps> = ({ children }) => {
     }
   }, [account, account?.username]);
 
+  useEffect(() => {
+    if (!users) return;
+    // update users for specific account on firebase
+  }, [users]);
+
   if (!account && router.pathname !== '/auth') return <div>Redirecting...</div>;
 
   return (

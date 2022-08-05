@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import { AccountContext } from '../../store/accountContext';
+import UserAvatar from '../account/UserAvatar';
 import Logo from '../icons/Logo';
 import TheNavigation from './TheNavigation';
 
@@ -18,22 +19,16 @@ const TheSidebar: React.FC = () => {
         <div className="lg:hidden"></div>
       </div>
 
-      <div className="cursor-pointer hover:animate-scale">
-        <Link href="/whoiswatching">
-          <a className="flex items-center justify-center h-10 w-10 rounded-full border-2 border-transparent hover:border-app-primary-red">
-            {userCtx?.activeUser?.image ? (
-              <Image
-                src={userCtx?.activeUser.image}
-                width={40}
-                height={40}
-                alt={`${userCtx?.activeUser.username} profile image`}
-              />
-            ) : (
-              <div className="w-10 h-10 rounded-full bg-app-blue-300"></div>
-            )}
-          </a>
-        </Link>
-      </div>
+      <UserAvatar>
+        {userCtx?.activeUser?.image && (
+          <Image
+            src={userCtx?.activeUser.image}
+            width={40}
+            height={40}
+            alt={`${userCtx?.activeUser.username} profile image`}
+          />
+        )}
+      </UserAvatar>
     </header>
   );
 };

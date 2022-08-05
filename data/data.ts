@@ -519,13 +519,13 @@ export const defaultUser: User = {
 export const defaultUsers: User[] = [
   {
     id: 1,
-    username: 'Lucas',
+    username: 'John',
     image: '/assets/image-avatar.png',
     isActiveUser: true,
   },
   {
     id: 2,
-    username: 'Tyler',
+    username: 'Lucas',
     isActiveUser: false,
   },
 ];
@@ -552,7 +552,7 @@ export interface Account {
 
 export const defaultAccount: Account = {
   id: 'gHsfgjdddafs424g3',
-  username: 'johndoe@webentertainmentapp.com',
+  username: 'johndoe@entertainmentwebapp.com',
   password: 'johndoe123',
   activeUser: defaultUsers[0],
   users: defaultUsers,

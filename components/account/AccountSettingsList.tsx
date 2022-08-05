@@ -17,15 +17,15 @@ const AccountSettingsList: React.FC = () => {
   const accountSettings: AccountSetting[] = [
     {
       title: 'Username',
-      value: accountCtx?.username,
+      value: accountCtx?.account?.username,
     },
     {
       title: 'Password',
-      value: accountCtx?.username,
+      value: accountCtx?.account?.username,
     },
     {
       title: 'Users',
-      value: accountCtx?.users.length,
+      value: accountCtx?.account?.users.length,
       href: '/whoiswatching',
     },
     {

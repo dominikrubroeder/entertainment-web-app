@@ -1,11 +1,25 @@
+import {
+  UserIcon,
+  UserAddIcon,
+  PencilIcon,
+  CheckIcon,
+  UserRemoveIcon,
+} from '@heroicons/react/solid';
 import React, { useContext, useRef, useState } from 'react';
 import { User } from '../../data/data';
 import { AccountContext } from '../../store/accountContext';
+import UserAvatar from '../account/UserAvatar';
 
 const AddUser: React.FC = () => {
   const accountCtx = useContext(AccountContext);
   const [isCreateUser, setIsCreateUser] = useState(false);
   const usernameRef = useRef<HTMLInputElement | null>(null);
+
+  const initCreateUser = () => {
+    setIsCreateUser(true);
+
+    usernameRef.current?.focus();
+  };
 
   const createUserHandler = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,9 +45,19 @@ const AddUser: React.FC = () => {
     <div className="flex flex-wrap gap-4">
       {isCreateUser && (
         <div className="grid gap-4 text-center opacity-0 invisible animate-fadeUp">
-          <div className="w-40 h-40 flex items-center justify-center bg-app-blue-800 rounded-full border-4 border-transparent">
-            + Profile image
+          <div
+            className="absolute top-2 right-2 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-app-primary-red cursor-pointer animate-scale hover:animate-scale-small"
+            onClick={createUserHandler}
+          >
+            {isCreateUser ? (
+              <CheckIcon className="shrink-0 text-white w-4 h-4" />
+            ) : (
+              <PencilIcon className="shrink-0 text-white w-4 h-4" />
+            )}
           </div>
+
+          <UserAvatar width="w-40" height="h-40" />
+
           <form onSubmit={createUserHandler}>
             <input
               placeholder="Username"
@@ -44,12 +68,9 @@ const AddUser: React.FC = () => {
         </div>
       )}
 
-      <div
-        className="w-40 h-40 flex items-center justify-center bg-app-blue-800 rounded-full border-4 border-transparent cursor-pointer hover:animate-scale-small hover:border-app-primary-red"
-        onClick={() => setIsCreateUser(true)}
-      >
-        +
-      </div>
+      <UserAvatar width="w-40" height="h-40" onClick={initCreateUser}>
+        <UserAddIcon className="w-10 h-10 text-app-blue-300" />
+      </UserAvatar>
     </div>
   );
 };

@@ -45,8 +45,16 @@ const Auth: NextPage = () => {
         </div>
 
         <p className="text-xs text-center text-app-blue-300 p-4">
-          For demonstration purposes just use <i>demo@demo.com</i> and{' '}
-          <i>savepassword</i> as valid access data.
+          For demonstration purposes just use
+          <i> johndoe@entertainmentwebapp.com</i> and
+          <i> johndoe123</i> as valid access data or create your own account by
+          <span
+            className="text-app-primary-red cursor-pointer"
+            onClick={() => setIsLogin((previousState) => !previousState)}
+          >
+            signing up
+          </span>
+          .
         </p>
       </div>
     </section>
