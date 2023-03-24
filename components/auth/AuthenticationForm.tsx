@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
-import React, { useContext, useRef, useState } from 'react';
-import LoadingSpinner from '../LoadingSpinner';
-import { LogoutIcon, PlusIcon } from '@heroicons/react/solid';
-import { AccountContext } from '../../store/accountContext';
-import { Account, defaultUser } from '../../data/data';
+import { useRouter } from "next/router";
+import React, { useContext, useRef, useState } from "react";
+import LoadingSpinner from "../LoadingSpinner";
+import { LogoutIcon, PlusIcon } from "@heroicons/react/solid";
+import { AccountContext } from "../../store/accountContext";
+import { Account, defaultUser } from "../../data/data";
 
 interface AuthenticationFormProps {
   isLogin: boolean;
@@ -20,55 +20,62 @@ const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const usernameInputValue = usernameInputRef.current?.value.trim();
-    const passwordInputValue = passwordInputRef.current?.value.trim();
-    const passwordRepeatInputValue =
-      passwordRepeatInputRef.current?.value.trim();
-
-    if (usernameInputValue === '' || passwordInputValue === '') return;
-
     setIsLoading(true);
 
-    if (isLogin) {
-      accountCtx?.login(usernameInputValue!, passwordInputValue!);
+    setTimeout(() => {
+      setIsLoading(false);
+      router.replace("/browse");
+    }, 2000);
 
-      setTimeout(() => {
-        setIsLoading(false);
-        router.replace('/browse');
-      }, 2000);
+    // const usernameInputValue = usernameInputRef.current?.value.trim();
+    // const passwordInputValue = passwordInputRef.current?.value.trim();
+    // const passwordRepeatInputValue =
+    //   passwordRepeatInputRef.current?.value.trim();
 
-      return;
-    }
+    // if (usernameInputValue === '' || passwordInputValue === '') return;
 
-    if (!isLogin) {
-      if (passwordRepeatInputValue === '') return;
+    // setIsLoading(true);
 
-      if (passwordInputValue !== passwordRepeatInputValue) {
-        console.log('Passwords do not match.');
-        return;
-      }
+    // if (isLogin) {
+    //   accountCtx?.login(usernameInputValue!, passwordInputValue!);
 
-      const newAccount: Account = {
-        id: 'idjohndoe',
-        username: usernameInputValue!,
-        password: passwordInputValue!,
-        activeUser: defaultUser,
-        users: [defaultUser],
-      };
+    //   setTimeout(() => {
+    //     setIsLoading(false);
+    //     router.replace('/browse');
+    //   }, 2000);
 
-      accountCtx?.signUp(newAccount);
+    //   return;
+    // }
 
-      setTimeout(() => {
-        setIsLoading(false);
-        router.replace('/whoiswatching');
-      }, 2000);
+    // if (!isLogin) {
+    //   if (passwordRepeatInputValue === '') return;
 
-      return;
-    }
+    //   if (passwordInputValue !== passwordRepeatInputValue) {
+    //     console.log('Passwords do not match.');
+    //     return;
+    //   }
+
+    //   const newAccount: Account = {
+    //     id: 'idjohndoe',
+    //     username: usernameInputValue!,
+    //     password: passwordInputValue!,
+    //     activeUser: defaultUser,
+    //     users: [defaultUser],
+    //   };
+
+    //   accountCtx?.signUp(newAccount);
+
+    //   setTimeout(() => {
+    //     setIsLoading(false);
+    //     router.replace('/whoiswatching');
+    //   }, 2000);
+
+    //   return;
+    // }
   };
 
   const inputClasses =
-    'p-4 bg-transparent border-b-2 border-b-app-blue-300 focus:border-b-white focus:outline-none';
+    "p-4 bg-transparent border-b-2 border-b-app-blue-300 focus:border-b-white focus:outline-none";
 
   if (isLoading)
     return (
@@ -103,7 +110,7 @@ const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
       )}
 
       <button className="bg-app-primary-red text-white p-4 rounded-xl">
-        {isLoading && 'Loading...'}
+        {isLoading && "Loading..."}
 
         {!isLoading && isLogin ? (
           <span className="flex items-center gap-2 justify-center">
