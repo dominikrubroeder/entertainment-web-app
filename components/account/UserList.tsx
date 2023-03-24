@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import React, { useContext } from 'react';
-import { User } from '../../data/data';
-import { AccountContext } from '../../store/accountContext';
-import Heading from '../typography/Heading';
-import UserAvatar from './UserAvatar';
+import Image from "next/image";
+import { useRouter } from "next/router";
+import React, { useContext } from "react";
+import { User } from "../../data/data";
+import { AccountContext } from "../../store/accountContext";
+import Heading from "../typography/Heading";
+import UserAvatar from "./UserAvatar";
 
 const UserList: React.FC = () => {
   const router = useRouter();
@@ -15,12 +15,12 @@ const UserList: React.FC = () => {
     accountCtx?.setActiveUser(user);
 
     // Redirect to dashboard
-    router.replace('/');
+    router.replace("/");
   };
 
   return (
     <ul className="flex flex-wrap gap-4">
-      {accountCtx?.users!.map((user, index) => (
+      {accountCtx?.account?.users.map((user, index) => (
         <li key={user.id}>
           <div
             className="grid gap-4 text-center opacity-0 invisible animate-fadeUp"
@@ -32,13 +32,15 @@ const UserList: React.FC = () => {
               height="w-40"
               activeBorder={user.id === accountCtx?.activeUser!.id}
             >
-              {user.image && (
+              {user.image ? (
                 <Image
                   src={user.image}
                   width={160}
                   height={160}
                   alt={`${user.username} profile image`}
                 />
+              ) : (
+                <div className="h-40 w-40 rounded-full"></div>
               )}
             </UserAvatar>
 

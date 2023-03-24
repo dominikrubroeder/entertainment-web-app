@@ -16,8 +16,10 @@ type AccountProviderProps = {
 const AccountProvider: React.FC<AccountProviderProps> = ({ children }) => {
   const router = useRouter();
   const [account, setAccount] = useState<Account | null>(defaultAccount);
-  const [users, setUsers] = useState<User[] | null>(null);
-  const [activeUser, setActiveUser] = useState<User | null>(null);
+  const [users, setUsers] = useState<User[] | null>(defaultAccount.users);
+  const [activeUser, setActiveUser] = useState<User | null>(
+    defaultAccount.activeUser
+  );
 
   const { pathname } = router;
 

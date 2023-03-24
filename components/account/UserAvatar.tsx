@@ -1,6 +1,6 @@
-import { UserAddIcon, UserIcon } from '@heroicons/react/solid';
-import Link from 'next/link';
-import React from 'react';
+import { UserAddIcon, UserIcon } from "@heroicons/react/solid";
+import Link from "next/link";
+import React from "react";
 
 interface UserAvatarProps {
   /** width as className like w-4 */
@@ -10,15 +10,17 @@ interface UserAvatarProps {
   /** determents if the avatar should have initial primary border visible */
   activeBorder?: boolean;
   children?: React.ReactNode;
+  centered?: boolean;
   onClick?: () => void;
 }
 
 const UserAvatar: React.FC<UserAvatarProps> = ({
-  width = 'w-10',
-  height = 'h-10',
+  width = "w-10",
+  height = "h-10",
   activeBorder = false,
   children,
   onClick,
+  centered,
 }) => {
   const onClickHandler = () => {
     if (onClick) onClick();
@@ -26,7 +28,9 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   return (
     <div
       className={`flex items-center justify-center ${width} ${height} ${
-        activeBorder ? 'border-app-primary-red' : 'border-transparent'
+        centered ? "mx-auto" : ""
+      } ${
+        activeBorder ? "border-app-primary-red" : "border-transparent"
       } bg-app-blue-800 rounded-full border-4 cursor-pointer overflow-hidden hover:animate-scale-small hover:border-app-primary-red`}
       onClick={onClickHandler}
     >

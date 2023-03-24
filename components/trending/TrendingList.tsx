@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
-import { EntityContext } from '../../store/entityContext';
-import EntityPreviewCard from '../EntityPreviewCard';
+import React, { useContext, useEffect } from "react";
+import { EntityContext } from "../../store/entityContext";
+import EntityPreviewCard from "../EntityPreviewCard";
 
 interface TrendingListProps {
   setResultsCount: (count: number | null) => void;
@@ -14,11 +14,11 @@ const TrendingList: React.FC<TrendingListProps> = ({ setResultsCount }) => {
   const filteredTrending = entityCtx!.trending.filter((entity) =>
     entity.title
       .toLowerCase()
-      .replaceAll(' ', '')
+      .replaceAll(" ", "")
       .includes(entityCtx!.transformedSearchValue!)
   );
 
-  const listClasses = 'flex gap-4 items-start overflow-auto whitespace-nowrap';
+  const listClasses = "flex gap-4 items-start overflow-auto whitespace-nowrap";
 
   useEffect(() => {
     if (searchValue !== null) setResultsCount(filteredTrending.length);
@@ -31,7 +31,7 @@ const TrendingList: React.FC<TrendingListProps> = ({ setResultsCount }) => {
         {filteredTrending.map((entity, index) => {
           return (
             <li key={index}>
-              <EntityPreviewCard data={entity} />
+              <EntityPreviewCard index={0} data={entity} />
             </li>
           );
         })}
@@ -43,7 +43,7 @@ const TrendingList: React.FC<TrendingListProps> = ({ setResultsCount }) => {
       {entityCtx!.trending.map((entity, index) => {
         return (
           <li key={index}>
-            <EntityPreviewCard data={entity} />
+            <EntityPreviewCard index={0} data={entity} />
           </li>
         );
       })}
