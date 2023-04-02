@@ -531,14 +531,12 @@ export const defaultUsers: User[] = [
 ];
 
 export type AccountContextType = {
-  account: Account | null;
-  setAccount: (account: Account | null) => void;
+  account: Account | undefined;
+  setAccount: (account: Account | undefined) => void;
   login: (username: string, password: string) => void;
   logout: () => void;
   signUp: (newAccount: Account) => void;
-  users: User[] | null;
   addUser: (user: User) => void;
-  activeUser: User | null;
   setActiveUser: (user: User) => void;
 };
 

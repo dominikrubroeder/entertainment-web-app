@@ -15,11 +15,7 @@ type AccountProviderProps = {
 
 const AccountProvider: React.FC<AccountProviderProps> = ({ children }) => {
   const router = useRouter();
-  const [account, setAccount] = useState<Account | null>(defaultAccount);
-  const [users, setUsers] = useState<User[] | null>(defaultAccount.users);
-  const [activeUser, setActiveUser] = useState<User | null>(
-    defaultAccount.activeUser
-  );
+  const [account, setAccount] = useState<Account | undefined>(defaultAccount);
 
   const { pathname } = router;
 
@@ -41,7 +37,7 @@ const AccountProvider: React.FC<AccountProviderProps> = ({ children }) => {
       })
       .catch((error) => {
         console.error("Error:", error);
-        setAccount(null);
+        setAccount(undefined);
       });
   };
 
@@ -76,55 +72,27 @@ const AccountProvider: React.FC<AccountProviderProps> = ({ children }) => {
         if (account) {
           // Refactor this to only one state
           setAccount(account);
-          setActiveUser(account.users[0]);
-          setUsers(account.users);
         } else {
           console.log("Account not found.");
-          setAccount(null);
+          setAccount(undefined);
         }
       })
       .catch((error) => {
         console.error("Error:", error);
-        setAccount(null);
+        setAccount(undefined);
       });
   };
 
-  const logout = () => {
-    setAccount(null);
-  };
-
-  const setActiveUserHandler = (user: User) => {
-    setActiveUser(user);
-  };
-
-  const addUserHandler = (user: User) => {
-    if (users) {
-      setUsers((previousState) => [...previousState!, user]);
-    }
-
-    if (!users) {
-      setUsers([user]);
-    }
-  };
-
   useEffect(() => {
-    console.log("Check if should redirect..");
-    if (!account && pathname !== "/auth") router.replace("/auth");
+    if (!account && pathname !== "/auth") {
+      router.replace("/auth");
+      return;
+    }
+
+    if (account && pathname === "/auth") router.replace("/browse");
+
+    console.log("Check authentication");
   }, [account, pathname]);
-
-  useEffect(() => {
-    if (!account) return;
-
-    if (account) {
-      setUsers(account.users);
-      setActiveUser(account.activeUser);
-    }
-  }, [account, account?.username]);
-
-  useEffect(() => {
-    if (!users) return;
-    // update users for specific account on firebase
-  }, [users]);
 
   if (!account && router.pathname !== "/auth") return <div>Redirecting...</div>;
 
@@ -134,12 +102,27 @@ const AccountProvider: React.FC<AccountProviderProps> = ({ children }) => {
         account,
         setAccount,
         login,
-        logout,
+        logout: () => {
+          setAccount(undefined);
+        },
         signUp,
-        users,
-        addUser: addUserHandler,
-        activeUser,
-        setActiveUser: setActiveUserHandler,
+        addUser: (user: User) => {
+          setAccount((previousState) => {
+            if (previousState === undefined) return undefined;
+
+            return {
+              ...previousState,
+              users: [...previousState.users, user],
+            };
+          });
+        },
+        setActiveUser: (user: User) => {
+          setAccount((previousState) => {
+            if (previousState === undefined) return undefined;
+
+            return { ...previousState, activeUser: user };
+          });
+        },
       }}
     >
       {children}
