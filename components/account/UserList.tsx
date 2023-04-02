@@ -30,7 +30,7 @@ const UserList: React.FC = () => {
             <UserAvatar
               width="w-40"
               height="w-40"
-              activeBorder={user.id === accountCtx?.activeUser!.id}
+              activeBorder={user.id === accountCtx?.account?.activeUser!.id}
             >
               {user.image ? (
                 <Image

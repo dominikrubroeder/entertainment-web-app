@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useContext } from 'react';
-import { AccountContext } from '../../store/accountContext';
-import UserAvatar from '../account/UserAvatar';
-import Logo from '../icons/Logo';
-import TheNavigation from './TheNavigation';
+import Image from "next/image";
+import Link from "next/link";
+import React, { useContext } from "react";
+import { AccountContext } from "../../store/accountContext";
+import UserAvatar from "../account/UserAvatar";
+import Logo from "../icons/Logo";
+import TheNavigation from "./TheNavigation";
 
 const TheSidebar: React.FC = () => {
   const userCtx = useContext(AccountContext);
@@ -20,12 +20,12 @@ const TheSidebar: React.FC = () => {
       </div>
 
       <UserAvatar>
-        {userCtx?.activeUser?.image && (
+        {userCtx?.account?.activeUser?.image && (
           <Image
-            src={userCtx?.activeUser.image}
+            src={userCtx?.account.activeUser.image}
             width={40}
             height={40}
-            alt={`${userCtx?.activeUser.username} profile image`}
+            alt={`${userCtx?.account.activeUser.username} profile image`}
           />
         )}
       </UserAvatar>

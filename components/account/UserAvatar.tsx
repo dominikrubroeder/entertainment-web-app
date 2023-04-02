@@ -1,6 +1,7 @@
 import { UserAddIcon, UserIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
+import { AccountContext } from "../../store/accountContext";
 
 interface UserAvatarProps {
   /** width as className like w-4 */
@@ -22,9 +23,11 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   onClick,
   centered,
 }) => {
+  const accCtx = useContext(AccountContext);
   const onClickHandler = () => {
     if (onClick) onClick();
   };
+
   return (
     <div
       className={`flex items-center justify-center ${width} ${height} ${
@@ -35,11 +38,15 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
       onClick={onClickHandler}
     >
       <Link href="/whoiswatching">
-        {children ? (
-          <a className="flex items-center justify-center">{children}</a>
-        ) : (
-          <UserIcon className="text-app-blue-300 translate-y-[10%]" />
-        )}
+        <a className="flex items-center justify-center">
+          {children ? (
+            children
+          ) : (
+            <div className="text-app-blue-300 font-bold">
+              {accCtx?.account?.activeUser?.username?.slice(0, 1).toUpperCase()}
+            </div>
+          )}
+        </a>
       </Link>
     </div>
   );
