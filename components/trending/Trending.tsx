@@ -8,8 +8,8 @@ const Trending: React.FC = () => {
   const entityCtx = useContext(EntityContext);
 
   return (
-    <section className="pl-4 md:pl-8 lg:pl-0">
-      <h2 className="grid text-[2rem] mb-6 md:flex md:items-center md:gap-2">
+    <section className='pl-4 md:pl-8 lg:pl-0'>
+      <h1 className='grid text-[2rem] mb-6 md:flex md:items-center md:gap-2'>
         Trending
         {resultsCount !== null && (
           <ResultMessage
@@ -17,7 +17,7 @@ const Trending: React.FC = () => {
             searchValue={entityCtx!.searchValue!}
           />
         )}
-      </h2>
+      </h1>
 
       <TrendingList setResultsCount={setResultsCount} />
     </section>

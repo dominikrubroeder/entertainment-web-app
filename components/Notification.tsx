@@ -40,34 +40,34 @@ const Notification: React.FC<NotificationProps> = ({
 
   switch (type) {
     case 'success':
-      icon = <CheckCircleIcon className="w-5 h-5 text-green-400 shrink-0" />;
+      icon = <CheckCircleIcon className='w-5 h-5 text-green-400 shrink-0' />;
       break;
 
     case 'info':
       icon = (
-        <InformationCircleIcon className="w-5 h-5 text-app-blue-300 shrink-0" />
+        <InformationCircleIcon className='w-5 h-5 text-app-blue-300 shrink-0' />
       );
       break;
 
     case 'error':
       icon = (
-        <ExclamationCircleIcon className="w-5 h-5 text-app-primary-red shrink-0" />
+        <ExclamationCircleIcon className='w-5 h-5 text-app-primary-red shrink-0' />
       );
       break;
 
     default:
       icon = (
-        <InformationCircleIcon className="w-5 h-5 text-app-blue-300 shrink-0" />
+        <InformationCircleIcon className='w-5 h-5 text-app-blue-300 shrink-0' />
       );
       break;
   }
 
   const notification = (
-    <div className="fixed top-4 left-1/2 flex items-start gap-2 max-w-screen-sm p-4 rounded-xl bg-app-blue-800 opacity-0 invisible animate-fadeUp">
+    <div className='fixed top-4 left-1/2 flex items-start gap-2 max-w-screen-sm p-4 rounded-xl bg-app-blue-800 opacity-0 invisible animate-fadeUp'>
       {icon}
       <div>
-        <h2 className="text-white">{title}</h2>
-        <p className="text-app-blue-300">{message}</p>
+        <h2 className='text-white'>{title}</h2>
+        <p className='text-app-blue-300'>{message}</p>
       </div>
     </div>
   );

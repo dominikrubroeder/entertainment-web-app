@@ -25,13 +25,13 @@ const Movies: NextPage = () => {
       <Head>
         <title>Movies | Web entertainment app | frontendmentor.io</title>
         <meta
-          name="description"
-          content="Web entertainment app | challenge by frontendmentor.io, solution by Dominik Rubröder | Search movies"
+          name='description'
+          content='Web entertainment app | challenge by frontendmentor.io, solution by Dominik Rubröder | Search movies'
         />
       </Head>
 
       <>
-        <Heading as="h2">
+        <Heading as='h1'>
           Movies
           {count !== null && (
             <ResultMessage
