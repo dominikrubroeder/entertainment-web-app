@@ -7,6 +7,7 @@ import IconPlay from './icons/IconPlay';
 import IconCategoryMovie from './icons/IconCategoryMovie';
 import IconCategoryTv from './icons/IconCategoryTv';
 import { EntityContext } from '../store/entityContext';
+import { useRouter } from 'next/router';
 
 interface EntityPreviewCardProps {
   data: Entity;
@@ -19,8 +20,9 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({
   trendingIsShown = true,
   index,
 }) => {
+  const router = useRouter();
   const entityCtx = useContext(EntityContext);
-  const id = data.title + data.year;
+  const id = data.title;
 
   const bookmark = (
     <div
@@ -32,7 +34,12 @@ const EntityPreviewCard: React.FC<EntityPreviewCardProps> = ({
   );
 
   const playOverlay = (
-    <div className='absolute inset-0 bg-black/50 rounded-xl flex items-center justify-center w-full h-full opacity-0 invisible z-30 group-hover:opacity-100 group-hover:visible'>
+    <div
+      className='absolute inset-0 bg-black/50 rounded-xl flex items-center justify-center w-full h-full opacity-0 invisible z-30 group-hover:opacity-100 group-hover:visible'
+      onClick={() =>
+        router.push(`/watch/${id.toLowerCase().replaceAll(' ', '')}`)
+      }
+    >
       <button className='flex gap-2 items-center justify-center rounded-full bg-white/25 text-lg font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-2 z-40'>
         <IconPlay /> Play
       </button>

@@ -555,3 +555,7 @@ export const defaultAccount: Account = {
   activeUser: defaultUsers[0],
   users: defaultUsers,
 };
+
+export const watchIDs = defaultEntities.map((entity) =>
+  entity.title.toLowerCase().replaceAll(' ', '')
+);
