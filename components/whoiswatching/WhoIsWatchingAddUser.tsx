@@ -1,8 +1,8 @@
-import { UserAddIcon, PencilIcon, CheckIcon } from "@heroicons/react/solid";
-import React, { useContext, useRef, useState } from "react";
-import { User } from "../../data/data";
-import { AccountContext } from "../../store/accountContext";
-import UserAvatar from "../account/UserAvatar";
+import { UserPlusIcon } from '@heroicons/react/24/solid';
+import React, { useContext, useRef, useState } from 'react';
+import { User } from '../../data/data';
+import { AccountContext } from '../../store/accountContext';
+import UserAvatar from '../account/UserAvatar';
 
 const AddUser: React.FC = () => {
   const accountCtx = useContext(AccountContext);
@@ -20,7 +20,7 @@ const AddUser: React.FC = () => {
 
     const username = usernameRef.current?.value.trim();
 
-    if (!username || username === "") return;
+    if (!username || username === '') return;
 
     const newUser: User = {
       id: Math.random(),
@@ -32,29 +32,29 @@ const AddUser: React.FC = () => {
 
     setIsCreateUser(false);
 
-    usernameRef.current!.value = "";
+    usernameRef.current!.value = '';
   };
 
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className='flex flex-wrap gap-4'>
       {isCreateUser && (
-        <div className="grid gap-4 justify-center items-center opacity-0 invisible animate-fadeUp">
-          <div className="mx-auto">
-            <UserAvatar width="w-40" height="h-40" />
+        <div className='invisible grid animate-fadeUp items-center justify-center gap-4 opacity-0'>
+          <div className='mx-auto'>
+            <UserAvatar width='w-40' height='h-40' />
           </div>
 
           <form onSubmit={createUserHandler}>
             <input
-              placeholder="Username"
-              className="bg-transparent text-white text-center focus:outline-none"
+              placeholder='Username'
+              className='bg-transparent text-center text-white focus:outline-none'
               ref={usernameRef}
             />
           </form>
         </div>
       )}
 
-      <UserAvatar width="w-40" height="h-40" onClick={initCreateUser}>
-        <UserAddIcon className="w-10 h-10 text-app-blue-300" />
+      <UserAvatar width='w-40' height='h-40' onClick={initCreateUser}>
+        <UserPlusIcon className='h-10 w-10 text-app-blue-300' />
       </UserAvatar>
     </div>
   );

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useContext } from 'react';
 import { AccountContext } from '../../store/accountContext';
 import { EntityContext } from '../../store/entityContext';
-import { PencilIcon, ArrowRightIcon } from '@heroicons/react/solid';
+import { PencilIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 
 interface AccountSetting {
   title: string;
@@ -36,23 +36,23 @@ const AccountSettingsList: React.FC = () => {
   ];
 
   return (
-    <ul className="grid gap-4">
+    <ul className='grid gap-4'>
       {accountSettings.map((accountSetting, index) => (
         <li
           key={accountSetting.title}
-          className="opacity-0 invisible animate-fadeUp"
+          className='invisible animate-fadeUp opacity-0'
           style={{ animationDelay: `${index * 100}ms` }}
         >
-          <div className="flex items-center justify-between gap-2 flex-wrap bg-app-blue-800 rounded-xl p-8">
+          <div className='flex flex-wrap items-center justify-between gap-2 rounded-xl bg-app-blue-800 p-8'>
             {accountSetting.title}
-            <div className="flex items-center gap-1">
-              <span className="text-app-blue-300">{accountSetting.value}</span>
+            <div className='flex items-center gap-1'>
+              <span className='text-app-blue-300'>{accountSetting.value}</span>
               {accountSetting.href ? (
                 <Link href={accountSetting.href}>
-                  <ArrowRightIcon className="w-5 h-5 text-app-primary-red cursor-pointer" />
+                  <ArrowRightIcon className='h-5 w-5 cursor-pointer text-app-primary-red' />
                 </Link>
               ) : (
-                <PencilIcon className="w-5 h-5 text-app-primary-red" />
+                <PencilIcon className='h-5 w-5 text-app-primary-red' />
               )}
             </div>
           </div>

@@ -1,7 +1,6 @@
-import { UserAddIcon, UserIcon } from "@heroicons/react/solid";
-import Link from "next/link";
-import React, { useContext } from "react";
-import { AccountContext } from "../../store/accountContext";
+import Link from 'next/link';
+import React, { useContext } from 'react';
+import { AccountContext } from '../../store/accountContext';
 
 interface UserAvatarProps {
   /** width as className like w-4 */
@@ -16,8 +15,8 @@ interface UserAvatarProps {
 }
 
 const UserAvatar: React.FC<UserAvatarProps> = ({
-  width = "w-10",
-  height = "h-10",
+  width = 'w-10',
+  height = 'h-10',
   activeBorder = false,
   children,
   onClick,
@@ -31,18 +30,18 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   return (
     <div
       className={`flex items-center justify-center ${width} ${height} ${
-        centered ? "mx-auto" : ""
+        centered ? 'mx-auto' : ''
       } ${
-        activeBorder ? "border-app-primary-red" : "border-transparent"
-      } bg-app-blue-800 rounded-full border-4 cursor-pointer overflow-hidden hover:animate-scale-small hover:border-app-primary-red`}
+        activeBorder ? 'border-app-primary-red' : 'border-transparent'
+      } cursor-pointer overflow-hidden rounded-full border-4 bg-app-blue-800 hover:animate-scale-small hover:border-app-primary-red`}
       onClick={onClickHandler}
     >
-      <Link href="/whoiswatching">
-        <a className="flex items-center justify-center">
+      <Link href='/whoiswatching'>
+        <a className='flex items-center justify-center'>
           {children ? (
             children
           ) : (
-            <div className="text-app-blue-300 font-bold">
+            <div className='font-bold text-app-blue-300'>
               {accCtx?.account?.activeUser?.username?.slice(0, 1).toUpperCase()}
             </div>
           )}

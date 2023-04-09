@@ -1,8 +1,8 @@
-import React, { useContext, useRef, useState } from "react";
-import LoadingSpinner from "../LoadingSpinner";
-import { LogoutIcon, PlusIcon } from "@heroicons/react/solid";
-import { AccountContext } from "../../store/accountContext";
-import { defaultAccount } from "../../data/data";
+import React, { useContext, useRef, useState } from 'react';
+import LoadingSpinner from '../LoadingSpinner';
+import { ArrowLeftOnRectangleIcon, PlusIcon } from '@heroicons/react/24/solid';
+import { AccountContext } from '../../store/accountContext';
+import { defaultAccount } from '../../data/data';
 
 interface AuthenticationFormProps {
   isLogin: boolean;
@@ -73,50 +73,51 @@ const AuthenticationForm: React.FC<AuthenticationFormProps> = ({ isLogin }) => {
   };
 
   const inputClasses =
-    "p-4 bg-transparent border-b-2 border-b-app-blue-300 focus:border-b-white focus:outline-none";
+    'p-4 bg-transparent border-b-2 border-b-app-blue-300 focus:border-b-white focus:outline-none';
 
   if (isLoading)
     return (
-      <div className="animate-bounce m-auto mb-10">
-        <LoadingSpinner className="text-app-primary-red" />
+      <div className='m-auto mb-10 animate-bounce'>
+        <LoadingSpinner className='text-app-primary-red' />
       </div>
     );
 
   return (
-    <form className="grid gap-4" onSubmit={handleSubmit}>
+    <form className='grid gap-4' onSubmit={handleSubmit}>
       <input
-        placeholder="Email address"
-        type="email"
+        placeholder='Email address'
+        type='email'
         className={inputClasses}
         ref={usernameInputRef}
       />
 
       <input
-        placeholder="Password"
-        type="password"
+        placeholder='Password'
+        type='password'
         className={inputClasses}
         ref={passwordInputRef}
       />
 
       {!isLogin && (
         <input
-          placeholder="Repeat password"
-          type="password"
+          placeholder='Repeat password'
+          type='password'
           className={inputClasses}
           ref={passwordRepeatInputRef}
         />
       )}
 
-      <button className="bg-app-primary-red text-white p-4 rounded-xl">
-        {isLoading && "Loading..."}
+      <button className='rounded-xl bg-app-primary-red p-4 text-white'>
+        {isLoading && 'Loading...'}
 
         {!isLoading && isLogin ? (
-          <span className="flex items-center gap-2 justify-center">
-            Login to your account <LogoutIcon className="w-5 h-5 text-white" />
+          <span className='flex items-center justify-center gap-2'>
+            Login to your account{' '}
+            <ArrowLeftOnRectangleIcon className='h-5 w-5 text-white' />
           </span>
         ) : (
-          <span className="flex items-center gap-2 justify-center">
-            Create account <PlusIcon className="w-5 h-5 text-white" />
+          <span className='flex items-center justify-center gap-2'>
+            Create account <PlusIcon className='h-5 w-5 text-white' />
           </span>
         )}
       </button>
